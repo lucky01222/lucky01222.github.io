@@ -6,17 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>解决pip下载速度慢的问题 | Hexo</title>
+  <title>Tag: 引言 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pip 有时下载库很慢，半天下不下来我也挺烦，就在网上看到这个方法，一用，很可以呀！记录一下：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="解决pip下载速度慢的问题">
-<meta property="og:url" content="http://example.com/2021/04/04/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+  <meta name="description" content="主要作为自己学习中的记录，也希望能和大家分享自己遇到的问题">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/tags/%E5%BC%95%E8%A8%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="pip 有时下载库很慢，半天下不下来我也挺烦，就在网上看到这个方法，一用，很可以呀！记录一下：">
+<meta property="og:description" content="主要作为自己学习中的记录，也希望能和大家分享自己遇到的问题">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-04-04T01:12:46.000Z">
-<meta property="article:modified_time" content="2021-04-04T01:28:14.385Z">
 <meta property="article:author" content="uckily">
 <meta name="twitter:card" content="summary">
   
@@ -144,174 +142,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-解决pip下载速度慢的问题" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      解决pip下载速度慢的问题
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/10/01/%E6%96%B0%E5%9E%8B%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E2%80%94%E2%80%94%E5%8F%82%E4%B8%8E%E8%80%85%E8%A1%8C%E4%B8%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2021-10-01T01:43:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/10/01/%E6%96%B0%E5%9E%8B%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1%E2%80%94%E2%80%94%E5%8F%82%E4%B8%8E%E8%80%85%E8%A1%8C%E4%B8%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0/">新型电子商务——参与者行为 第一章</a>
     </h1>
   
 
-        
-        <a href="/2021/04/04/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-04-04T01:12:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>pip 有时下载库很慢，半天下不下来我也挺烦，就在网上看到这个方法，一用，很可以呀！记录一下：</p>
-<span id="more"></span>
-<h3 id="1-临时"><a href="#1-临时" class="headerlink" title="1.临时"></a>1.临时</h3><pre><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
-</code></pre>
-<h3 id="2设为默认"><a href="#2设为默认" class="headerlink" title="2设为默认"></a>2设为默认</h3><pre><code>pip install pip -U
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
-<p>一用，确实快了很多，不可同日而语，嘿嘿</p>
-<p>镜像源的话我觉得两个都行，一个是上面的，还有一个:<a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></p>
-<p>以上部分内容参考自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39123009/article/details/88088134?utm_source=app&amp;app_version=4.5.2">https://blog.csdn.net/qq_39123009/article/details/88088134?utm_source=app&amp;app_version=4.5.2</a></p>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引言</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
+          
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的奖励O(∩_∩)O哈哈~<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/04/04/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/04/04/m1-docker/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          m1 docker
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/04/03/%E4%B8%8D%E6%98%AF%E7%BB%93%E6%9D%9F%EF%BC%8C%E6%98%AF%E5%BC%80%E5%A7%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">不是结束，是开始</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -334,9 +218,9 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
