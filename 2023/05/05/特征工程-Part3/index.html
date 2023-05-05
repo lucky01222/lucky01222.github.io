@@ -16,24 +16,24 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Telco Customer Churn 电信用户流失案例该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）机器学习基本建模流程如下： 1 数据背景与数据探索1.1 业务背景 在数字时代，传统的大众营销已经失去优势，如何基于用户信息和行为，来进行更加精准的营销，从而满足用户更加多样化、层次化和个性化的需求，成为所有电信运营商必须面对的课题。而于此同时，电信的公共客户（个人">
+    <meta name="description" content="Telco Customer Churn 电信用户流失案例该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）接Part2部分 3.连续字段的特征变换3.1 标准化与归一化从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1标准化，都属于Standa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="特征工程_Part1">
-<meta property="og:url" content="http://example.com/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/index.html">
+<meta property="og:title" content="特征工程_Part3">
+<meta property="og:url" content="http://example.com/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part3/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="Telco Customer Churn 电信用户流失案例该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）机器学习基本建模流程如下： 1 数据背景与数据探索1.1 业务背景 在数字时代，传统的大众营销已经失去优势，如何基于用户信息和行为，来进行更加精准的营销，从而满足用户更加多样化、层次化和个性化的需求，成为所有电信运营商必须面对的课题。而于此同时，电信的公共客户（个人">
+<meta property="og:description" content="Telco Customer Churn 电信用户流失案例该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）接Part2部分 3.连续字段的特征变换3.1 标准化与归一化从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1标准化，都属于Standa">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
-<meta property="article:published_time" content="2023-05-05T11:11:57.000Z">
-<meta property="article:modified_time" content="2023-05-05T13:06:13.707Z">
+<meta property="article:published_time" content="2023-05-05T13:07:17.000Z">
+<meta property="article:modified_time" content="2023-05-05T13:26:38.501Z">
 <meta property="article:author" content="uckily">
-<meta property="article:tag" content="特征工程 案例">
+<meta property="article:tag" content="机器学习 特征工程 离散变量重编码">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
   
   
   
-  <title>特征工程_Part1 - lucky的个人博客</title>
+  <title>特征工程_Part3 - lucky的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="特征工程_Part1"></span>
+            <span id="subtitle" data-typed-text="特征工程_Part3"></span>
           
         </div>
 
@@ -210,7 +210,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-05 19:11" pubdate>
+        <time datetime="2023-05-05 21:07" pubdate>
           2023年5月5日 晚上
         </time>
       </span>
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          792 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          19 分钟
+          7 分钟
         
       </span>
     
@@ -271,31 +271,16 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">特征工程_Part1</h1>
+            <h1 style="display: none">特征工程_Part3</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Telco-Customer-Churn-电信用户流失案例"><a href="#Telco-Customer-Churn-电信用户流失案例" class="headerlink" title="Telco Customer Churn 电信用户流失案例"></a>Telco Customer Churn 电信用户流失案例</h1><p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）<br>机器学习基本建模流程如下：<br><img src="/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg" srcset="/img/loading.gif" lazyload></p>
-<h2 id="1-数据背景与数据探索"><a href="#1-数据背景与数据探索" class="headerlink" title="1 数据背景与数据探索"></a>1 数据背景与数据探索</h2><h3 id="1-1-业务背景"><a href="#1-1-业务背景" class="headerlink" title="1.1 业务背景"></a>1.1 业务背景</h3><p> 在数字时代，传统的大众营销已经失去优势，如何基于用户信息和行为，来进行更加精准的营销，从而满足用户更加多样化、层次化和个性化的需求，成为所有电信运营商必须面对的课题。而于此同时，电信的公共客户（个人或家庭用户）用户又同时具有易变性、发展性和替代性等特点，且用户需求弹性较小，外加普通用户购买电信产品周期较长，导致在实际的交易关系中，电信公司对公共客户获客较难、主动拓展新用户成本较高，因此维系既有用户、防止用户流失就成了重要的运营策略。</p>
-<h3 id="1-2-建模目标"><a href="#1-2-建模目标" class="headerlink" title="1.2 建模目标"></a>1.2 建模目标</h3><p>1.对流失用户进行预测<br>2.找出影响用户流失的重要因子</p>
-<h2 id="2-数据解读与预处理"><a href="#2-数据解读与预处理" class="headerlink" title="2 数据解读与预处理"></a>2 数据解读与预处理</h2><pre><code class="hljs">tcc.info()  # 数据概况
-</code></pre>
-<ul>
-<li>1.数据正确性校验：判断有无重复数据</li>
-<li>2.缺失值检验<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">missing</span>(<span class="hljs-params">df</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    计算每一列的缺失值及占比</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    missing_number = df.isnull().<span class="hljs-built_in">sum</span>().sort_values(ascending=<span class="hljs-literal">False</span>)<br>    missing_percent = (df.isnull().<span class="hljs-built_in">sum</span>()/df.isnull().count()).sort_values(ascending=<span class="hljs-literal">False</span>)<br>    missing_values = pd.concat([missing_number, missing_percent], keys=[<span class="hljs-string">&quot;missing_number&quot;</span>, <span class="hljs-string">&quot;missing_percent&quot;</span>])<br><br>    <span class="hljs-keyword">return</span> missing_values<br><br></code></pre></td></tr></table></figure></li>
-<li>3.连续离散变量标注<br>下面将object类型字段提取出来进行处理<br>  tcc.select_dtypes(“object”).columns  #直接提取object类型字段<br>查看dataframe各列的取值<br>  df.nunique() # 查看不同取值个数<br>  df.unique()  # 查看取值<br>查看某列不同取值出现的次数<br>  df[“B”].explode().value_counts().to_dict()</li>
-<li>4.缺失值替换<br>法1：<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span> = tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span><span class="hljs-selector-class">.apply</span>(lambda x: x <span class="hljs-keyword">if</span> x != <span class="hljs-string">&quot; &quot;</span> <span class="hljs-keyword">else</span> np.nan)<span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br>tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span> = tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span><span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br></code></pre></td></tr></table></figure>
-法2：<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">df1.TotalCharges = pd.<span class="hljs-keyword">to</span><span class="hljs-constructor">_numeric(<span class="hljs-params">df1</span>.TotalCharges, <span class="hljs-params">errors</span>=<span class="hljs-string">&quot;coerce&quot;</span>)</span> # <span class="hljs-string">&quot;coerce&quot;</span>表示无法转化的用缺失值填补<br></code></pre></td></tr></table></figure></li>
-<li>5.异常值点检测<h2 id="3-变量相关性探索与探索性分析"><a href="#3-变量相关性探索与探索性分析" class="headerlink" title="3 变量相关性探索与探索性分析"></a>3 变量相关性探索与探索性分析</h2><h3 id="3-1变量相关性分析"><a href="#3-1变量相关性分析" class="headerlink" title="3.1变量相关性分析"></a>3.1变量相关性分析</h3></li>
-<li>1.标签处理<br>对标签y进行处理<br>  <code>df3[&quot;churn&quot;].replace(to_replace=&quot;Yes&quot;, value=1, inplace=True)</code><br>  <code>df3[&quot;churn&quot;].replace(to_replace=&quot;No&quot;, value=0, inplace=True)</code></li>
-<li>2.分类变量处理<br>转换为分类变量转化为哑变量<br>  <code>df_dummies = pd.get_dummies(df3)</code></li>
-<li>3.热力图展示相关性<br>只能大概看看效果<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">plt</span><span class="hljs-selector-class">.figure</span>(figsize=(<span class="hljs-number">16</span>, <span class="hljs-number">8</span>), dpi=<span class="hljs-number">200</span>)<br><span class="hljs-selector-tag">sns</span><span class="hljs-selector-class">.heatmap</span>(df_dummies.corr());<br><br><span class="hljs-selector-tag">df_dummies</span><span class="hljs-selector-class">.corr</span>()<span class="hljs-selector-attr">[<span class="hljs-string">&quot;Churn&quot;</span>]</span><span class="hljs-selector-class">.sort_values</span>(ascending=False)<span class="hljs-selector-class">.plot</span>(kind=<span class="hljs-string">&quot;bar&quot;</span>)<br></code></pre></td></tr></table></figure>
-<h3 id="3-2数据探索性分析"><a href="#3-2数据探索性分析" class="headerlink" title="3.2数据探索性分析"></a>3.2数据探索性分析</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros">fig,<span class="hljs-attribute">axes</span>=plt.subplots(nrows=1,ncols=2,figsize=(12,6), <span class="hljs-attribute">dpi</span>=100)<br><br><span class="hljs-comment"># 柱状图</span><br>plt.subplot(121)<br>sns.countplot(<span class="hljs-attribute">x</span>=<span class="hljs-string">&quot;gender&quot;</span>,hue=&quot;Churn&quot;,data=tcc,palette=&quot;Blues&quot;, <span class="hljs-attribute">dodge</span>=<span class="hljs-literal">True</span>)<br>plt.xlabel(<span class="hljs-string">&quot;Gender&quot;</span>)<br>plt.title(<span class="hljs-string">&quot;Churn by Gender&quot;</span>)<br><br><span class="hljs-comment"># 柱状堆叠图</span><br>plt.subplot(122)<br>sns.countplot(<span class="hljs-attribute">x</span>=<span class="hljs-string">&quot;gender&quot;</span>,hue=&quot;Churn&quot;,data=tcc,palette=&quot;Blues&quot;, <span class="hljs-attribute">dodge</span>=<span class="hljs-literal">False</span>)<br>plt.xlabel(<span class="hljs-string">&quot;Gender&quot;</span>)<br>plt.title(<span class="hljs-string">&quot;Churn by Gender&quot;</span>)<br></code></pre></td></tr></table></figure></li>
-</ul>
-<p align="right"> lucky  </p>
-<p align="right"> 时23年5月5日  </p>
+                <h1 id="Telco-Customer-Churn-电信用户流失案例"><a href="#Telco-Customer-Churn-电信用户流失案例" class="headerlink" title="Telco Customer Churn 电信用户流失案例"></a>Telco Customer Churn 电信用户流失案例</h1><p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）<br>接Part2部分</p>
+<h2 id="3-连续字段的特征变换"><a href="#3-连续字段的特征变换" class="headerlink" title="3.连续字段的特征变换"></a>3.连续字段的特征变换</h2><h3 id="3-1-标准化与归一化"><a href="#3-1-标准化与归一化" class="headerlink" title="3.1 标准化与归一化"></a>3.1 标准化与归一化</h3><p>从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1标准化，都属于Standardization的范畴，而在sklearn中，Normalization则特指针对单个样本（一行数据）利用其范数进行放缩的过程。不过二者都属于数据预处理范畴，都在sklearn中的Preprocessing data模块下。<br><em>需要注意的是，此前我们介绍数据归一化时有讨论过标准化和归一化名称上的区别，在大多数场景下其实我们并不会对其进行特意的区分，但sklearn中标准化和归一化则各指代一类数据处理方法，此处需要注意。</em></p>
+<h4 id="3-1-1-Z-score标准化"><a href="#3-1-1-Z-score标准化" class="headerlink" title="3.1.1 Z-score标准化"></a>3.1.1 Z-score标准化</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">from sklearn.preprocessing import StandardScaler  <span class="hljs-comment"># 导入</span><br><span class="hljs-keyword">scaler_1 </span>= StandardScaler()  <span class="hljs-comment"># 实例化</span><br><span class="hljs-keyword">scaler_1.fit(X) </span>  <span class="hljs-comment"># 训练</span><br><span class="hljs-keyword">scaler_1.scale_ </span> <span class="hljs-comment"># 属性查看标准差</span><br><span class="hljs-keyword">scaler_1.mean_ </span> <span class="hljs-comment"># 属性查看均值</span><br><span class="hljs-keyword">scaler_1.var_ </span> <span class="hljs-comment"># 属性查看方差</span><br><span class="hljs-keyword">scaler_1.n_samples_seen_ </span> <span class="hljs-comment"># 属性查看有效的训练数据数量</span><br></code></pre></td></tr></table></figure>
 
+<h4 id="3-1-2-0-1标准化"><a href="#3-1-2-0-1标准化" class="headerlink" title="3.1.2 0-1标准化"></a>3.1.2 0-1标准化</h4><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">from sklearn.preprocessing import MinMaxScaler  <span class="hljs-comment"># 导入</span><br><span class="hljs-keyword">scaler_2 </span>= MinMaxScaler()  <span class="hljs-comment"># 实例化</span><br><span class="hljs-keyword">scaler_2.fit_transform(X) </span>  <span class="hljs-comment"># 训练</span><br><span class="hljs-keyword">scaler_2.data_min_ </span> <span class="hljs-comment"># 属性查看最小值</span><br><span class="hljs-keyword">scaler_2.data_max_ </span> <span class="hljs-comment"># 属性查看最大值</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -328,7 +313,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E6%A1%88%E4%BE%8B/">#特征工程 案例</a>
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E7%A6%BB%E6%95%A3%E5%8F%98%E9%87%8F%E9%87%8D%E7%BC%96%E7%A0%81/">#机器学习 特征工程 离散变量重编码</a>
       
     </div>
   
@@ -340,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>特征工程_Part1</div>
-      <div>http://example.com/2023/05/05/特征工程/</div>
+      <div>特征工程_Part3</div>
+      <div>http://example.com/2023/05/05/特征工程-Part3/</div>
     </div>
     <div class="license-meta">
       
@@ -385,18 +370,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part2/" title="特征工程_Part2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">特征工程_Part2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/05/%E5%B1%B1%E7%A7%91%E7%BE%8E%E6%99%AF%EF%BC%88%E6%AF%95%E4%B8%9A%EF%BC%89/" title="山科美景（毕业）">
-                        <span class="hidden-mobile">山科美景（毕业）</span>
+                      <a href="/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part2/" title="特征工程_Part2">
+                        <span class="hidden-mobile">特征工程_Part2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
