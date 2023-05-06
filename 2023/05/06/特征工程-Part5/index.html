@@ -16,21 +16,24 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="pip 有时下载库很慢，半天下不下来我也挺烦，就在网上看到这个方法，一用，很可以呀！记录一下：">
+    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分 5.逻辑回归的进阶调优与模型解释 逻辑回归的判别阈值也可以作为超参数进行调整，但是sklearn中并未提供该参数，因此下面将自定义评估器。 5.1阈值调优 12345678910111213141516171819202122232425262">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决pip下载速度慢的问题">
-<meta property="og:url" content="http://example.com/2021/04/04/%E8%A7%A3%E5%86%B3pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="特征工程_Part5">
+<meta property="og:url" content="http://example.com/2023/05/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part5/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="pip 有时下载库很慢，半天下不下来我也挺烦，就在网上看到这个方法，一用，很可以呀！记录一下：">
+<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分 5.逻辑回归的进阶调优与模型解释 逻辑回归的判别阈值也可以作为超参数进行调整，但是sklearn中并未提供该参数，因此下面将自定义评估器。 5.1阈值调优 12345678910111213141516171819202122232425262">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-04T01:12:46.000Z">
-<meta property="article:modified_time" content="2023-05-04T14:13:18.364Z">
+<meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
+<meta property="article:published_time" content="2023-05-06T12:51:17.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:46:51.401Z">
 <meta property="article:author" content="uckily">
+<meta property="article:tag" content="机器学习 特征工程 进阶调优 模型解释">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
   
   
   
-  <title>解决pip下载速度慢的问题 - lucky的个人博客</title>
+  <title>特征工程_Part5 - lucky的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -190,13 +193,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/camping.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="解决pip下载速度慢的问题"></span>
+            <span id="subtitle" data-typed-text="特征工程_Part5"></span>
           
         </div>
 
@@ -207,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-04-04 09:12" pubdate>
-          2021年4月4日 上午
+        <time datetime="2023-05-06 20:51" pubdate>
+          2023年5月6日 晚上
         </time>
       </span>
     
@@ -219,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          387 字
+          2.9k 字
         
       </span>
     
@@ -230,7 +233,7 @@
         
         
         
-          4 分钟
+          25 分钟
         
       </span>
     
@@ -268,20 +271,53 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">解决pip下载速度慢的问题</h1>
+            <h1 style="display: none">特征工程_Part5</h1>
             
             
               <div class="markdown-body">
                 
-                <p>pip
-有时下载库很慢，半天下不下来我也挺烦，就在网上看到这个方法，一用，很可以呀！记录一下：
-<span id="more"></span> ### 1.临时 pip install -i
-https://pypi.tuna.tsinghua.edu.cn/simple some-package ### 2设为默认 pip
-install pip -U pip config set global.index-url
-https://pypi.tuna.tsinghua.edu.cn/simple</p>
-<p>一用，确实快了很多，不可同日而语，嘿嘿</p>
-<p>镜像源的话我觉得两个都行，一个是上面的，还有一个:http://pypi.douban.com/simple/</p>
-<p>以上部分内容参考自：https://blog.csdn.net/qq_39123009/article/details/88088134?utm_source=app&amp;app_version=4.5.2</p>
+                <h1 id="telco-customer-churn-电信用户流失案例">Telco Customer Churn
+电信用户流失案例</h1>
+<p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）
+接Part4部分</p>
+<h2 id="逻辑回归的进阶调优与模型解释">5.逻辑回归的进阶调优与模型解释</h2>
+<p>逻辑回归的判别阈值也可以作为超参数进行调整，但是sklearn中并未提供该参数，因此下面将自定义评估器。</p>
+<h3 id="阈值调优">5.1阈值调优</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python">********************************重要*********************************<br><span class="hljs-keyword">from</span> sklearn.base <span class="hljs-keyword">import</span> BaseEstimator, TransformerMixin<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">logit_threshold</span>(<span class="hljs-params">BaseEstimator, TransformerMixin</span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, penalty=<span class="hljs-string">&#x27;l2&#x27;</span>, C=<span class="hljs-number">1.0</span>, max_iter=<span class="hljs-number">1e8</span>, solver=<span class="hljs-string">&#x27;lbfgs&#x27;</span>, l1_ratio=<span class="hljs-literal">None</span>, class_weight=<span class="hljs-literal">None</span>, thr=<span class="hljs-number">0.5</span></span>):</span><br>        self.penalty = penalty<br>        self.C = C<br>        self.max_iter = max_iter<br>        self.solver = solver<br>        self.l1_ratio = l1_ratio<br>        self.thr = thr<br>        self.class_weight = class_weight<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fit</span>(<span class="hljs-params">self, X, y</span>):</span><br>        clf = LogisticRegression(<br>            penalty = self.penalty<br>            , C = self.C<br>            , solver = self.solver<br>            , l1_ratio = self.l1_ratio<br>            , class_weight = self.class_weight<br>            , max_iter = self.max_iter<br>        )<br>        clf.fit(X, y)<br>        self.coef_ = clf.coef_<br>        self.clf = clf<br>        <span class="hljs-keyword">return</span> self<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">score</span>(<span class="hljs-params">self, X, y</span>):</span><br>        score = self.clf.score(X, y)<br>        <span class="hljs-keyword">return</span> score<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span>(<span class="hljs-params">self, X</span>):</span><br>        res = (self.clf.predict_proba(X)[:,<span class="hljs-number">1</span>]&gt;=self.thr) * <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+<p>之后继续进行搜索即可，具体代码见Part3.</p>
+<h3 id="class_weight-调优">5.2 class_weight 调优</h3>
+<p>  一般来说，如果是3:1的样本比例，class_weight的参数取值基本可以设置在2:1=4:1之间，也可以考虑使用样本量的反比，在sklearn中为balance参数</p>
+<h3 id="模型解释">5.3 模型解释</h3>
+<h4 id="系数查看">5.3.1 系数查看</h4>
+<p><code>coef = logistic_search.best_estimator_.named_steps['logit_threshold'].coef_  # 定位到逻辑回归评估器调出其参数</code></p>
+<p>将系数与字段名相结合查看具体含义 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs routeros">oht = logistic_search.best_estimator_.named_steps[<span class="hljs-string">&#x27;columntransformer&#x27;</span>].named_transformers_[<span class="hljs-string">&#x27;cat&#x27;</span>]  # 定位到独热编码转换器<br><br><span class="hljs-comment"># 转化后离散变量列名称</span><br>category_cols_new = cate_colName(tf, category_cols)<br><br><span class="hljs-comment"># 所有字段名称</span><br>cols_new = category_cols_new + numeric_cols<br><br><span class="hljs-comment"># 查看特征名称数量和特征系数数量是否一致</span><br>assert len(cols_new) == len(coe)<br><br>weights = pd.Series(coe, <span class="hljs-attribute">index</span>=cols_new)<br><br><span class="hljs-comment"># 可视化展示取值最大和最小的10个自变量系数</span><br>plt.figure(figsize=(16, 6), <span class="hljs-attribute">dpi</span>=200)<br><br><span class="hljs-comment"># 挑选正相关的前10个变量</span><br>plt.subplot(121)<br>weights.sort_values(ascending = <span class="hljs-literal">False</span>)[:10].plot(<span class="hljs-attribute">kind</span>=<span class="hljs-string">&#x27;bar&#x27;</span>)<br><br><span class="hljs-comment"># 挑选负相关的前10个变量</span><br>plt.subplot(122)<br>weights.sort_values(ascending = <span class="hljs-literal">False</span>)[-10:].plot(<span class="hljs-attribute">kind</span>=<span class="hljs-string">&#x27;bar&#x27;</span>);<br></code></pre></td></tr></table></figure></p>
+<h4 id="系数解释">5.3.2 系数解释</h4>
+<p>  逻辑回归方程如下(假设训练的方程为1-x): <span class="math display">\[
+y=\frac{1}{1+e^{-(1-x)}}
+\]</span>   进一步推导可得: <span class="math display">\[
+ln{\frac{y}{1-y}}= 1-x
+\]</span> 可解释为x每增加1，样本的对数几率就减少1
+一般如果对数几率增加50%，概率大约增加10%</p>
+<h2 id="模型总结">5.4 模型总结</h2>
+<ul>
+<li><p>1.模型性能
+  通过上述尝试，我们基本能判断逻辑回归模型在当前数据集的性能，准确率约在80%左右，准确率没有太大的超参数调优搜索空间，而f1-Score则在我们额外设置的超参数——阈值上能够有更好的搜索结果。</p></li>
+<li><p>2.超参数调优
+  sklearn中的逻辑回归超参数众多，在算力允许的情况下，建议尽量设置更多的迭代次数（max_iter）和更小的收敛条件（tol），基本的搜索参数为正则化项（penalty）+经验风险系数（C）+求解器（solver），如果算力允许，可以纳入弹性网正则化项进行搜索，并搜索l1正则化项权重系数（l1_ratio）。若样本存在样本不均衡，可带入class_weight进行搜索，若搜索目标是提升f1-Score或ROC-AUC，则可通过自定义评估器进行阈值移动，若希望进行更加精确的搜索，可以纳入连续变量的编码方式进行搜索。</p></li>
+<li><p>3.阈值移动与样本权重调节
+  根据上面的实验结果，对于阈值调优和样本权重调优可以进行如下总结：<br>
+  (1)阈值移动往往出现在f1-Score调优或ROC-AUC调优的场景中，由于阈值移动对召回率、精确度等指标调整效果显著，因此该参数的搜索往往效果要好于逻辑回归其他默认参数，类似的情况也出现在其他能够输出概率结果的模型中（如决策树、随机森林等）；<br>
+  (2)样本权重调节往往出现在非平衡类数据集的建模场景中，通过该参数的设置，能够让模型在训练过程中更加关注少数类样本，从而一定程度起到平衡数据集不同类别样本的目的，并且相比于其他平衡样本方法（例如过采样、欠采样、SMOTEENN等），该方法能够更好的避免过拟合，并且该参数同样也是一个通用参数，出现在sklearn集成的诸多模型中。建议如果算力允许，可以在任何指标调整过程中对该参数进行搜索；<br>
+  (3)不过如果是围绕f1-Score或ROC-AUC进行调优，阈值移动和样本权重调节会有功能上的重复，此时建议优先选用阈值进行搜索。</p></li>
+<li><p>4.模型解释
+  对于逻辑回归来说，模型可解释性的核心在于模型是线性方程，据此我们可以根据线性方程中自变量的系数对其进行结果解读，包括自变量变化如何影响因变量，以及自变量之间的相对关系等。</p></li>
+</ul>
+<p align="right">
+lucky
+</p>
+<p align="right">
+时23年6月5日
+</p>
 
                 
               </div>
@@ -300,7 +336,7 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="category-chain-item">问题解决</a>
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
   
   
 
@@ -312,6 +348,13 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E8%BF%9B%E9%98%B6%E8%B0%83%E4%BC%98-%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/">#机器学习 特征工程 进阶调优 模型解释</a>
+      
+    </div>
+  
 </div>
 
 
@@ -320,8 +363,8 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>解决pip下载速度慢的问题</div>
-      <div>http://example.com/2021/04/04/解决pip下载速度慢的问题/</div>
+      <div>特征工程_Part5</div>
+      <div>http://example.com/2023/05/06/特征工程-Part5/</div>
     </div>
     <div class="license-meta">
       
@@ -333,7 +376,7 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2021年4月4日</div>
+          <div>2023年5月6日</div>
         </div>
       
       
@@ -365,15 +408,15 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/04/m1-docker/" title="m1 docker">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">m1 docker</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/05/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part4/" title="特征工程_Part4">
+                        <span class="hidden-mobile">特征工程_Part4</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -427,6 +470,12 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -620,6 +669,49 @@ https://pypi.tuna.tsinghua.edu.cn/simple</p>
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
