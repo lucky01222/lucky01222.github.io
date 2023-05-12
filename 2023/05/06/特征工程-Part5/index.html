@@ -16,16 +16,16 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分 5.逻辑回归的进阶调优与模型解释 逻辑回归的判别阈值也可以作为超参数进行调整，但是sklearn中并未提供该参数，因此下面将自定义评估器。 5.1阈值调优 12345678910111213141516171819202122232425262">
+    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征工程_Part5">
 <meta property="og:url" content="http://example.com/2023/05/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part5/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分 5.逻辑回归的进阶调优与模型解释 逻辑回归的判别阈值也可以作为超参数进行调整，但是sklearn中并未提供该参数，因此下面将自定义评估器。 5.1阈值调优 12345678910111213141516171819202122232425262">
+<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
 <meta property="article:published_time" content="2023-05-06T12:51:17.000Z">
-<meta property="article:modified_time" content="2023-05-06T13:46:51.401Z">
+<meta property="article:modified_time" content="2023-05-12T11:48:57.409Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="机器学习 特征工程 进阶调优 模型解释">
 <meta name="twitter:card" content="summary_large_image">
@@ -279,7 +279,7 @@
                 <h1 id="telco-customer-churn-电信用户流失案例">Telco Customer Churn
 电信用户流失案例</h1>
 <p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）
-接Part4部分</p>
+接Part4部分 <span id="more"></span></p>
 <h2 id="逻辑回归的进阶调优与模型解释">5.逻辑回归的进阶调优与模型解释</h2>
 <p>逻辑回归的判别阈值也可以作为超参数进行调整，但是sklearn中并未提供该参数，因此下面将自定义评估器。</p>
 <h3 id="阈值调优">5.1阈值调优</h3>
@@ -299,19 +299,25 @@ ln{\frac{y}{1-y}}= 1-x
 \]</span> 可解释为x每增加1，样本的对数几率就减少1
 一般如果对数几率增加50%，概率大约增加10%</p>
 <h2 id="模型总结">5.4 模型总结</h2>
-<ul>
-<li><p>1.模型性能
-  通过上述尝试，我们基本能判断逻辑回归模型在当前数据集的性能，准确率约在80%左右，准确率没有太大的超参数调优搜索空间，而f1-Score则在我们额外设置的超参数——阈值上能够有更好的搜索结果。</p></li>
-<li><p>2.超参数调优
-  sklearn中的逻辑回归超参数众多，在算力允许的情况下，建议尽量设置更多的迭代次数（max_iter）和更小的收敛条件（tol），基本的搜索参数为正则化项（penalty）+经验风险系数（C）+求解器（solver），如果算力允许，可以纳入弹性网正则化项进行搜索，并搜索l1正则化项权重系数（l1_ratio）。若样本存在样本不均衡，可带入class_weight进行搜索，若搜索目标是提升f1-Score或ROC-AUC，则可通过自定义评估器进行阈值移动，若希望进行更加精确的搜索，可以纳入连续变量的编码方式进行搜索。</p></li>
-<li><p>3.阈值移动与样本权重调节
-  根据上面的实验结果，对于阈值调优和样本权重调优可以进行如下总结：<br>
+<ol type="1">
+<li>模型性能方面</li>
+</ol>
+<p>  通过上述尝试，我们基本能判断逻辑回归模型在当前数据集的性能，准确率约在80%左右，准确率没有太大的超参数调优搜索空间，而f1-Score则在我们额外设置的超参数——阈值上能够有更好的搜索结果。</p>
+<ol start="2" type="1">
+<li>超参数调优方面</li>
+</ol>
+<p>  sklearn中的逻辑回归超参数众多，在算力允许的情况下，建议尽量设置更多的迭代次数（max_iter）和更小的收敛条件（tol），基本的搜索参数为正则化项（penalty）+经验风险系数（C）+求解器（solver），如果算力允许，可以纳入弹性网正则化项进行搜索，并搜索l1正则化项权重系数（l1_ratio）。若样本存在样本不均衡，可带入class_weight进行搜索，若搜索目标是提升f1-Score或ROC-AUC，则可通过自定义评估器进行阈值移动，若希望进行更加精确的搜索，可以纳入连续变量的编码方式进行搜索。</p>
+<ol start="3" type="1">
+<li>阈值移动与样本权重调节方面</li>
+</ol>
+<p>根据上面的实验结果，对于阈值调优和样本权重调优可以进行如下总结：<br>
   (1)阈值移动往往出现在f1-Score调优或ROC-AUC调优的场景中，由于阈值移动对召回率、精确度等指标调整效果显著，因此该参数的搜索往往效果要好于逻辑回归其他默认参数，类似的情况也出现在其他能够输出概率结果的模型中（如决策树、随机森林等）；<br>
   (2)样本权重调节往往出现在非平衡类数据集的建模场景中，通过该参数的设置，能够让模型在训练过程中更加关注少数类样本，从而一定程度起到平衡数据集不同类别样本的目的，并且相比于其他平衡样本方法（例如过采样、欠采样、SMOTEENN等），该方法能够更好的避免过拟合，并且该参数同样也是一个通用参数，出现在sklearn集成的诸多模型中。建议如果算力允许，可以在任何指标调整过程中对该参数进行搜索；<br>
-  (3)不过如果是围绕f1-Score或ROC-AUC进行调优，阈值移动和样本权重调节会有功能上的重复，此时建议优先选用阈值进行搜索。</p></li>
-<li><p>4.模型解释
-  对于逻辑回归来说，模型可解释性的核心在于模型是线性方程，据此我们可以根据线性方程中自变量的系数对其进行结果解读，包括自变量变化如何影响因变量，以及自变量之间的相对关系等。</p></li>
-</ul>
+  (3)不过如果是围绕f1-Score或ROC-AUC进行调优，阈值移动和样本权重调节会有功能上的重复，此时建议优先选用阈值进行搜索。</p>
+<ol start="4" type="1">
+<li>模型解释方面</li>
+</ol>
+<p>  对于逻辑回归来说，模型可解释性的核心在于模型是线性方程，据此我们可以根据线性方程中自变量的系数对其进行结果解读，包括自变量变化如何影响因变量，以及自变量之间的相对关系等。</p>
 <p align="right">
 lucky
 </p>

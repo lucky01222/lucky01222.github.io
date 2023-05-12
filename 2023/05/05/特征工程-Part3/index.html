@@ -16,16 +16,16 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part2部分 ## 3.连续字段的特征变换 ### 3.1 标准化与归一化   从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1">
+    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part2部分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征工程_Part3">
 <meta property="og:url" content="http://example.com/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part3/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part2部分 ## 3.连续字段的特征变换 ### 3.1 标准化与归一化   从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1">
+<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part2部分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
 <meta property="article:published_time" content="2023-05-05T13:07:17.000Z">
-<meta property="article:modified_time" content="2023-05-06T11:22:59.856Z">
+<meta property="article:modified_time" content="2023-05-12T11:47:14.402Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="机器学习 特征工程 离散变量重编码">
 <meta name="twitter:card" content="summary_large_image">
@@ -279,11 +279,13 @@
                 <h1 id="telco-customer-churn-电信用户流失案例">Telco Customer Churn
 电信用户流失案例</h1>
 <p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）
-接Part2部分 ## 3.连续字段的特征变换 ### 3.1 标准化与归一化
-  从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1标准化，都属于Standardization的范畴，而在sklearn中，Normalization则特指针对单个样本（一行数据）利用其范数进行放缩的过程。不过二者都属于数据预处理范畴，都在sklearn中的Preprocessing
-data模块下。
-<em>需要注意的是，此前我们介绍数据归一化时有讨论过标准化和归一化名称上的区别，在大多数场景下其实我们并不会对其进行特意的区分，但sklearn中标准化和归一化则各指代一类数据处理方法，此处需要注意。</em>
-#### 3.1.1 Z-score标准化</p>
+接Part2部分 <span id="more"></span></p>
+<h2 id="连续字段的特征变换">3.连续字段的特征变换</h2>
+<h3 id="标准化与归一化">3.1 标准化与归一化</h3>
+<p>  从功能上划分，sklearn中的归一化其实是分为标准化（Standardization）和归一化（Normalization）两类。其中，此前所介绍的Z-Score标准化和0-1标准化，都属于Standardization的范畴，而在sklearn中，Normalization则特指针对单个样本（一行数据）利用其范数进行放缩的过程。不过二者都属于数据预处理范畴，都在sklearn中的Preprocessing
+data模块下。</p>
+<p><em>需要注意的是，此前我们介绍数据归一化时有讨论过标准化和归一化名称上的区别，在大多数场景下其实我们并不会对其进行特意的区分，但sklearn中标准化和归一化则各指代一类数据处理方法，此处需要注意。</em></p>
+<h4 id="z-score标准化">3.1.1 Z-score标准化</h4>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">from sklearn.preprocessing import StandardScaler  <span class="hljs-comment"># 导入</span><br><span class="hljs-keyword">scaler_1 </span>= StandardScaler()  <span class="hljs-comment"># 实例化</span><br><span class="hljs-keyword">scaler_1.fit(X) </span>  <span class="hljs-comment"># 训练</span><br><span class="hljs-keyword">scaler_1.scale_ </span> <span class="hljs-comment"># 属性查看标准差</span><br><span class="hljs-keyword">scaler_1.mean_ </span> <span class="hljs-comment"># 属性查看均值</span><br><span class="hljs-keyword">scaler_1.var_ </span> <span class="hljs-comment"># 属性查看方差</span><br><span class="hljs-keyword">scaler_1.n_samples_seen_ </span> <span class="hljs-comment"># 属性查看有效的训练数据数量</span><br></code></pre></td></tr></table></figure>
 <h4 id="标准化">3.1.2 0-1标准化</h4>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">from sklearn.preprocessing import MinMaxScaler  <span class="hljs-comment"># 导入</span><br><span class="hljs-keyword">scaler_2 </span>= MinMaxScaler()  <span class="hljs-comment"># 实例化</span><br><span class="hljs-keyword">scaler_2.fit_transform(X) </span>  <span class="hljs-comment"># 训练</span><br><span class="hljs-keyword">scaler_2.data_min_ </span> <span class="hljs-comment"># 属性查看最小值</span><br><span class="hljs-keyword">scaler_2.data_max_ </span> <span class="hljs-comment"># 属性查看最大值</span><br></code></pre></td></tr></table></figure>
@@ -297,14 +299,15 @@ x_n]^T\)</span>，则向量x的1-范数的基本计算公式为： <span class="
 \]</span> 即各分量的平方和再开平方。</p>
 <p>  而sklearn中的Normalization过程，实际上就是将每一行数据视作一个向量，然后用每一行数据去除以该行数据的1-范数或者2-范数。具体除以哪个范数，以preprocessing.normalize函数中输入的norm参数为准。</p>
 <p>method_1:</p>
-<p><code>preprocessing.normalize(X, norm='l1')</code>
-<code>preprocessing.normalize(X, norm='l2')</code></p>
+<p><code>preprocessing.normalize(X, norm='l1')</code></p>
+<p><code>preprocessing.normalize(X, norm='l2')</code></p>
 <p>method_2:</p>
 <p><code>X / np.linalg.norm(X, ord=1 axis=1).reshape(5,1)</code></p>
 <p><code>X / np.linalg.norm(X, ord=2, axis=1)</code></p>
 <p><code>X / np.sqrt(np.sum(np.power(X, 2), axis=1))# 与上一个效果相同</code></p>
-<p>method_3: <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">from sklearn.preprocessing import Normalizer<br>normalize = <span class="hljs-constructor">Normalizer(<span class="hljs-params">norm</span>=&#x27;<span class="hljs-params">l1</span>&#x27;)</span><br>normalize.fit<span class="hljs-constructor">_transform(X)</span><br></code></pre></td></tr></table></figure> ### 3.2连续变量的分箱
-一般根据具体的业务流程或计算流程进行分箱 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">from</span> sklearn.preprocessing import KBinDiscretizer<br>dis_1 = KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&quot;ordinal&quot;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&quot;uniform&quot;</span>)  # 等宽分箱<br>dis_2 = KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&quot;ordinal&quot;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&quot;quantile&quot;</span>)  # 等频分箱<br>dis_3 = KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&#x27;ordinal&#x27;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&#x27;kmeans&#x27;</span>)  # 聚类分箱<br>dis_1.fit_transform(income) # 训练<br>dis_1.bin_edges_ # 划分边界<br></code></pre></td></tr></table></figure></p>
+<p>method_3: <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">from sklearn.preprocessing import Normalizer<br>normalize = <span class="hljs-constructor">Normalizer(<span class="hljs-params">norm</span>=&#x27;<span class="hljs-params">l1</span>&#x27;)</span><br>normalize.fit<span class="hljs-constructor">_transform(X)</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="连续变量的分箱">3.2连续变量的分箱</h3>
+<p>一般根据具体的业务流程或计算流程进行分箱 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">from</span> sklearn.preprocessing import KBinDiscretizer<br>dis_1 = KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&quot;ordinal&quot;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&quot;uniform&quot;</span>)  # 等宽分箱<br>dis_2 = KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&quot;ordinal&quot;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&quot;quantile&quot;</span>)  # 等频分箱<br>dis_3 = KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&#x27;ordinal&#x27;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&#x27;kmeans&#x27;</span>)  # 聚类分箱<br>dis_1.fit_transform(income) # 训练<br>dis_1.bin_edges_ # 划分边界<br></code></pre></td></tr></table></figure></p>
 <h3 id="columntransformer集成连续变量">3.3
 ColumnTransformer集成连续变量</h3>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">ColumnTransformer([<br>    (<span class="hljs-string">&#x27;cat&#x27;</span>, OHE(<span class="hljs-attribute">drop</span>=<span class="hljs-string">&#x27;if_binary&#x27;</span>), catgory),<br>    (<span class="hljs-string">&#x27;num&#x27;</span>, KBinDiscretizer(<span class="hljs-attribute">n_bins</span>=3, <span class="hljs-attribute">encode</span>=<span class="hljs-string">&#x27;ordinal&#x27;</span>, <span class="hljs-attribute">strategy</span>=<span class="hljs-string">&#x27;kmeans&#x27;</span>), numeric)<br>])<br></code></pre></td></tr></table></figure>
