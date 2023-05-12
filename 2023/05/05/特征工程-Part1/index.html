@@ -16,22 +16,26 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.研究生阶段的系列准备 1.1 后续材料处理 大概会在五一后就会出研究生录取前准备的相关信息通知，记得查收做好转接工作。 以下为去年的消息通知内容及时间： - 4.27:统考拟录取名单发布 - 5.18:党组织关系转接 - 5.21:拟录取学生师生互选 - 5.28:下载调档函 做好准备不要耽误 ## 1.2 研究生能力的培养 一方面要询问好老师需要自己在入学前学习的内容或者要去做的工作；另一方">
+    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="考研之后">
-<meta property="og:url" content="http://example.com/2023/05/03/%E8%80%83%E7%A0%94%E4%B9%8B%E5%90%8E/index.html">
+<meta property="og:title" content="特征工程_Part1">
+<meta property="og:url" content="http://example.com/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part1/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="1.研究生阶段的系列准备 1.1 后续材料处理 大概会在五一后就会出研究生录取前准备的相关信息通知，记得查收做好转接工作。 以下为去年的消息通知内容及时间： - 4.27:统考拟录取名单发布 - 5.18:党组织关系转接 - 5.21:拟录取学生师生互选 - 5.28:下载调档函 做好准备不要耽误 ## 1.2 研究生能力的培养 一方面要询问好老师需要自己在入学前学习的内容或者要去做的工作；另一方">
+<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-05-03T11:30:38.000Z">
-<meta property="article:modified_time" content="2023-05-04T14:10:03.567Z">
+<meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
+<meta property="article:published_time" content="2023-05-05T11:11:57.000Z">
+<meta property="article:modified_time" content="2023-05-12T12:46:35.439Z">
 <meta property="article:author" content="uckily">
-<meta property="article:tag" content="考研之后的一些相关安排">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="特征工程">
+<meta property="article:tag" content="案例">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
   
   
   
-  <title>考研之后 - lucky的个人博客</title>
+  <title>特征工程_Part1 - lucky的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -191,13 +195,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/camping.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="考研之后"></span>
+            <span id="subtitle" data-typed-text="特征工程_Part1"></span>
           
         </div>
 
@@ -208,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-03 19:30" pubdate>
-          2023年5月3日 晚上
+        <time datetime="2023-05-05 19:11" pubdate>
+          2023年5月5日 晚上
         </time>
       </span>
     
@@ -220,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          655 字
+          2.1k 字
         
       </span>
     
@@ -231,7 +235,7 @@
         
         
         
-          6 分钟
+          18 分钟
         
       </span>
     
@@ -269,34 +273,63 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">考研之后</h1>
+            <h1 style="display: none">特征工程_Part1</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="研究生阶段的系列准备">1.研究生阶段的系列准备</h1>
-<h2 id="后续材料处理">1.1 后续材料处理</h2>
-<p>大概会在五一后就会出研究生录取前准备的相关信息通知，记得查收做好转接工作。
-以下为去年的消息通知内容及时间： - 4.27:统考拟录取名单发布 -
-5.18:党组织关系转接 - 5.21:拟录取学生师生互选 - 5.28:下载调档函
-做好准备不要耽误 ## 1.2 研究生能力的培养
-一方面要询问好老师需要自己在入学前学习的内容或者要去做的工作；另一方面要做好自身学习安排。具体的学习方面的安排将会在之后叙述。</p>
-<h1 id="毕业准备">2.毕业准备</h1>
-<h2 id="毕业论文准备">2.1 毕业论文准备</h2>
-<p>时至今日，毕业论文已完成大部分的内容，但尚且还有一些地方需要进行完善。
-- 1.内容方面要更新 - 2.图表方面要更加清晰易懂 - 3.参考文献要更加丰富 -
-4.理论基础要更加完善
-这论文也算是自己这四年的一个成果，还是要尽力去把它做好，也算是给自己一个交代吧，后续论文方面的修改和进展也会在博客里有所体现。
-## 2.2 拍毕业照和吃饭
-这个更多的是记着点早点定一下地方，别到时候都订满了，最后一次了，还是要早做打算，暂定五月下旬准备一下这个事。</p>
-<h1 id="学习安排">3.学习安排</h1>
-<p>总体还是分机器学习、英语和阅读三个方面。 ## 3.1 机器学习
-现在还是先把课看完，每天总结好相应的代码和建模思想。后续等看完了整理好可以开始考虑一下打比赛。
-## 3.2 英语
-英语方面的学习按照书来，尽量保证周一到周五每天做一章的进度，之后进行总结。
-## 3.3 阅读 先看完《老子》，每天整理</p>
-<h1 id="出行计划">4.出行计划</h1>
-<p>感觉自己是出不去了，如果能出去的话，暂定以下几个选项：南京去看看鑫哥、澳门去看看管世泽、在青岛自己转转。。。感觉可以别抱太大希望。</p>
+                <h1 id="telco-customer-churn-电信用户流失案例">Telco Customer Churn
+电信用户流失案例</h1>
+<p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）
+<span id="more"></span> 机器学习基本建模流程如下： <img src="/images/机器学习/特征工程/流程图.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="数据背景与数据探索">1 数据背景与数据探索</h2>
+<h3 id="业务背景">1.1 业务背景</h3>
+<p>  在数字时代，传统的大众营销已经失去优势，如何基于用户信息和行为，来进行更加精准的营销，从而满足用户更加多样化、层次化和个性化的需求，成为所有电信运营商必须面对的课题。而于此同时，电信的公共客户（个人或家庭用户）用户又同时具有易变性、发展性和替代性等特点，且用户需求弹性较小，外加普通用户购买电信产品周期较长，导致在实际的交易关系中，电信公司对公共客户获客较难、主动拓展新用户成本较高，因此维系既有用户、防止用户流失就成了重要的运营策略。</p>
+<h3 id="建模目标">1.2 建模目标</h3>
+<ol type="1">
+<li>对流失用户进行预测</li>
+<li>找出影响用户流失的重要因子</li>
+</ol>
+<h2 id="数据解读与预处理">2 数据解读与预处理</h2>
+<p><code>tcc.info()  # 数据概况</code></p>
+<ol type="1">
+<li><p>数据正确性校验：判断有无重复数据</p></li>
+<li><p>缺失值检验 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">missing</span>(<span class="hljs-params">df</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    计算每一列的缺失值及占比</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    missing_number = df.isnull().<span class="hljs-built_in">sum</span>().sort_values(ascending=<span class="hljs-literal">False</span>)<br>    missing_percent = (df.isnull().<span class="hljs-built_in">sum</span>()/df.isnull().count()).sort_values(ascending=<span class="hljs-literal">False</span>)<br>    missing_values = pd.concat([missing_number, missing_percent], keys=[<span class="hljs-string">&quot;missing_number&quot;</span>, <span class="hljs-string">&quot;missing_percent&quot;</span>])<br><br>    <span class="hljs-keyword">return</span> missing_values<br><br></code></pre></td></tr></table></figure></p></li>
+<li><p>连续离散变量标注</p></li>
+</ol>
+<p>下面将object类型字段提取出来进行处理
+<code>tcc.select_dtypes("object").columns  #直接提取object类型字段</code></p>
+<p>查看dataframe各列的取值 <code>df.nunique() # 查看不同取值个数</code>
+<code>df.unique()  # 查看取值</code></p>
+<p>查看某列不同取值出现的次数
+<code>df["B"].explode().value_counts().to_dict()</code></p>
+<ol start="4" type="1">
+<li>缺失值替换 法1： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span> = tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span><span class="hljs-selector-class">.apply</span>(lambda x: x <span class="hljs-keyword">if</span> x != <span class="hljs-string">&quot; &quot;</span> <span class="hljs-keyword">else</span> np.nan)<span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br>tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span> = tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span><span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br></code></pre></td></tr></table></figure> 法2： <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">df1.TotalCharges = pd.<span class="hljs-keyword">to</span><span class="hljs-constructor">_numeric(<span class="hljs-params">df1</span>.TotalCharges, <span class="hljs-params">errors</span>=<span class="hljs-string">&quot;coerce&quot;</span>)</span> # <span class="hljs-string">&quot;coerce&quot;</span>表示无法转化的用缺失值填补<br></code></pre></td></tr></table></figure></li>
+<li>异常值点检测</li>
+</ol>
+<h2 id="变量相关性探索与探索性分析">3 变量相关性探索与探索性分析</h2>
+<h3 id="变量相关性分析">3.1变量相关性分析</h3>
+<ol type="1">
+<li>标签处理</li>
+</ol>
+<p>对标签y进行处理</p>
+<p><code>df3["churn"].replace(to_replace="Yes", value=1, inplace=True)</code>
+<code>df3["churn"].replace(to_replace="No", value=0, inplace=True)</code>
+- 2.分类变量处理</p>
+<p>转换为分类变量转化为哑变量</p>
+<p><code>df_dummies = pd.get_dummies(df3)</code></p>
+<ul>
+<li>3.热力图展示相关性</li>
+</ul>
+<p>只能大概看看效果 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">plt</span><span class="hljs-selector-class">.figure</span>(figsize=(<span class="hljs-number">16</span>, <span class="hljs-number">8</span>), dpi=<span class="hljs-number">200</span>)<br><span class="hljs-selector-tag">sns</span><span class="hljs-selector-class">.heatmap</span>(df_dummies.corr());<br><br><span class="hljs-selector-tag">df_dummies</span><span class="hljs-selector-class">.corr</span>()<span class="hljs-selector-attr">[<span class="hljs-string">&quot;Churn&quot;</span>]</span><span class="hljs-selector-class">.sort_values</span>(ascending=False)<span class="hljs-selector-class">.plot</span>(kind=<span class="hljs-string">&quot;bar&quot;</span>)<br></code></pre></td></tr></table></figure></p>
+<h3 id="数据探索性分析">3.2数据探索性分析</h3>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros">fig,<span class="hljs-attribute">axes</span>=plt.subplots(nrows=1,ncols=2,figsize=(12,6), <span class="hljs-attribute">dpi</span>=100)<br><br><span class="hljs-comment"># 柱状图</span><br>plt.subplot(121)<br>sns.countplot(<span class="hljs-attribute">x</span>=<span class="hljs-string">&quot;gender&quot;</span>,hue=&quot;Churn&quot;,data=tcc,palette=&quot;Blues&quot;, <span class="hljs-attribute">dodge</span>=<span class="hljs-literal">True</span>)<br>plt.xlabel(<span class="hljs-string">&quot;Gender&quot;</span>)<br>plt.title(<span class="hljs-string">&quot;Churn by Gender&quot;</span>)<br><br><span class="hljs-comment"># 柱状堆叠图</span><br>plt.subplot(122)<br>sns.countplot(<span class="hljs-attribute">x</span>=<span class="hljs-string">&quot;gender&quot;</span>,hue=&quot;Churn&quot;,data=tcc,palette=&quot;Blues&quot;, <span class="hljs-attribute">dodge</span>=<span class="hljs-literal">False</span>)<br>plt.xlabel(<span class="hljs-string">&quot;Gender&quot;</span>)<br>plt.title(<span class="hljs-string">&quot;Churn by Gender&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p align="right">
+lucky
+</p>
+<p align="right">
+时23年5月5日
+</p>
 
                 
               </div>
@@ -312,6 +345,23 @@
 <span class="category-chains">
   
   
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" class="category-chain-item">特征工程</a>
+  
+  
+
+  
+
+      </span>
+    
+  
 </span>
 
     </div>
@@ -320,7 +370,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%80%83%E7%A0%94%E4%B9%8B%E5%90%8E%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9B%B8%E5%85%B3%E5%AE%89%E6%8E%92/">#考研之后的一些相关安排</a>
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">#机器学习</a>
+      
+        <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">#特征工程</a>
+      
+        <a href="/tags/%E6%A1%88%E4%BE%8B/">#案例</a>
       
     </div>
   
@@ -332,8 +386,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>考研之后</div>
-      <div>http://example.com/2023/05/03/考研之后/</div>
+      <div>特征工程_Part1</div>
+      <div>http://example.com/2023/05/05/特征工程-Part1/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +399,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月3日</div>
+          <div>2023年5月5日</div>
         </div>
       
       
@@ -372,6 +426,29 @@
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part2/" title="特征工程_Part2">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">特征工程_Part2</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/05/05/%E5%B1%B1%E7%A7%91%E7%BE%8E%E6%99%AF%EF%BC%88%E6%AF%95%E4%B8%9A%EF%BC%89/" title="山科美景（毕业）">
+                        <span class="hidden-mobile">山科美景（毕业）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 

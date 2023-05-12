@@ -25,9 +25,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
 <meta property="article:published_time" content="2023-05-05T12:19:40.000Z">
-<meta property="article:modified_time" content="2023-05-12T11:47:54.139Z">
+<meta property="article:modified_time" content="2023-05-12T12:48:00.078Z">
 <meta property="article:author" content="uckily">
-<meta property="article:tag" content="机器学习 特征工程 离散变量重编码">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="特征工程">
+<meta property="article:tag" content="离散变量重编码">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
   
@@ -278,8 +280,10 @@
                 
                 <h1 id="telco-customer-churn-电信用户流失案例">Telco Customer Churn
 电信用户流失案例</h1>
-<p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）
-接Part1部分 <span id="more"></span> 上节处理代码</p>
+<p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）</p>
+<p>接Part1部分</p>
+<span id="more"></span>
+<p>上节处理代码</p>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs nix"><span class="hljs-built_in">import</span> numpy as np<br><span class="hljs-built_in">import</span> pandas as pd<br><span class="hljs-built_in">import</span> seaborn as sns<br><span class="hljs-built_in">import</span> matplotlib.pyplot as plt<br><span class="hljs-attr">tcc</span> = pd.read_csv(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-attr">index_col=0)</span><br><span class="hljs-comment">### 预处理</span><br><span class="hljs-attr">category</span> = []<span class="hljs-comment"># 离散</span><br><span class="hljs-attr">numeric</span> = []<span class="hljs-comment"># 连续</span><br><span class="hljs-attr">target</span> = <span class="hljs-string">&quot;Churn&quot;</span><span class="hljs-comment"># 标签</span><br><br>tcc[<span class="hljs-string">&quot;features&quot;</span>] = tcc[<span class="hljs-string">&quot;features&quot;</span>].apply(lambda x :x <span class="hljs-keyword">if</span> x!=&#x27; &#x27; <span class="hljs-keyword">else</span> np.nan)<br>tcc[<span class="hljs-string">&quot;features&quot;</span>] = tcc[<span class="hljs-string">&quot;features&quot;</span>].astype(float)<br><br>tcc[<span class="hljs-string">&quot;features&quot;</span>] = tcc[<span class="hljs-string">&quot;features&quot;</span>].fillna(<span class="hljs-number">0</span>)<span class="hljs-comment"># 缺失按0处理</span><br><br>tcc[<span class="hljs-string">&quot;Churn&quot;</span>].replace(<span class="hljs-attr">to_replace=&quot;Yes&quot;,</span> <span class="hljs-attr">value=1,</span> <span class="hljs-attr">inplace=True)</span><br>tcc[<span class="hljs-string">&quot;Churn&quot;</span>].replace(<span class="hljs-attr">to_replace=&quot;No&quot;,</span> <span class="hljs-attr">value=0,</span> <span class="hljs-attr">inplace=False)</span><br></code></pre></td></tr></table></figure>
 <h2 id="离散字段的数据重编码">2.离散字段的数据重编码</h2>
 <h3 id="ordinalencoder">2.1 OrdinalEncoder</h3>
@@ -325,6 +329,13 @@ lucky
   <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
   
   
+    <span>></span>
+    
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" class="category-chain-item">特征工程</a>
+  
+  
+
+  
 
       </span>
     
@@ -337,7 +348,11 @@ lucky
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-%E7%A6%BB%E6%95%A3%E5%8F%98%E9%87%8F%E9%87%8D%E7%BC%96%E7%A0%81/">#机器学习 特征工程 离散变量重编码</a>
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">#机器学习</a>
+      
+        <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">#特征工程</a>
+      
+        <a href="/tags/%E7%A6%BB%E6%95%A3%E5%8F%98%E9%87%8F%E9%87%8D%E7%BC%96%E7%A0%81/">#离散变量重编码</a>
       
     </div>
   
@@ -404,7 +419,7 @@ lucky
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" title="特征工程_Part1">
+                      <a href="/2023/05/05/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part1/" title="特征工程_Part1">
                         <span class="hidden-mobile">特征工程_Part1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
