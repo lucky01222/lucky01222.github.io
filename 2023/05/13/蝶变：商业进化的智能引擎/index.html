@@ -16,26 +16,24 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分">
+    <meta name="description" content="接下来，将会开始阅读杨老师的《蝶变》系列，并进行整理归纳，总结感悟。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="特征工程Part_6">
-<meta property="og:url" content="http://example.com/2023/05/12/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8BPart-6/index.html">
+<meta property="og:title" content="蝶变：商业进化的智能引擎">
+<meta property="og:url" content="http://example.com/2023/05/13/%E8%9D%B6%E5%8F%98%EF%BC%9A%E5%95%86%E4%B8%9A%E8%BF%9B%E5%8C%96%E7%9A%84%E6%99%BA%E8%83%BD%E5%BC%95%E6%93%8E/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="Telco Customer Churn 电信用户流失案例 该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的） 接Part4部分">
+<meta property="og:description" content="接下来，将会开始阅读杨老师的《蝶变》系列，并进行整理归纳，总结感悟。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
-<meta property="article:published_time" content="2023-05-12T12:04:22.000Z">
-<meta property="article:modified_time" content="2023-05-12T12:47:39.150Z">
+<meta property="og:image" content="http://example.com/images/%E8%9D%B6%E5%8F%98/wood-texture.jpg">
+<meta property="article:published_time" content="2023-05-13T10:44:38.000Z">
+<meta property="article:modified_time" content="2023-05-13T12:17:04.450Z">
 <meta property="article:author" content="uckily">
-<meta property="article:tag" content="机器学习">
-<meta property="article:tag" content="特征工程">
-<meta property="article:tag" content="决策树">
+<meta property="article:tag" content="蝶变">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
+<meta name="twitter:image" content="http://example.com/images/%E8%9D%B6%E5%8F%98/wood-texture.jpg">
   
   
   
-  <title>特征工程Part_6 - lucky的个人博客</title>
+  <title>蝶变：商业进化的智能引擎 - lucky的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,13 +193,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/images/%E8%9D%B6%E5%8F%98/wood-texture.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="特征工程Part_6"></span>
+            <span id="subtitle" data-typed-text="蝶变：商业进化的智能引擎"></span>
           
         </div>
 
@@ -212,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 20:04" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2023-05-13 18:44" pubdate>
+          2023年5月13日 晚上
         </time>
       </span>
     
@@ -224,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          146 字
         
       </span>
     
@@ -235,7 +233,7 @@
         
         
         
-          18 分钟
+          2 分钟
         
       </span>
     
@@ -273,107 +271,21 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">特征工程Part_6</h1>
+            <h1 style="display: none">蝶变：商业进化的智能引擎</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="telco-customer-churn-电信用户流失案例">Telco Customer Churn
-电信用户流失案例</h1>
-<p>该篇为学习机器学习课程特征工程案例课整理笔记（代码部分只记录自己不太熟悉的）</p>
-<p>接Part4部分</p>
-<span id="more"></span>
-<h2 id="决策树模型训练与结果解释">6.决策树模型训练与结果解释</h2>
-<h3 id="建立benchmark">6.1 建立Benchmark</h3>
-<p>  决策树对数据的要求并没有Logistic回归一样高，无需对分类变量进行独热编码，因此此处直接使用自然数编码。
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">from</span> sklearn.tree <span class="hljs-keyword">import</span> DecisionTreeClassifier  # 导入决策树评估器<br><br>tree_pre = ColumnTransformer([<br>    (<span class="hljs-string">&#x27;cat&#x27;</span>, OE(), category),<br>    (<span class="hljs-string">&#x27;num&#x27;</span>, <span class="hljs-string">&#x27;passthrough&#x27;</span>, numeric)<br>])  # 设置转化器流<br><br>tree_model = DecisionTreeClassifier()  # 实例化<br>tree_pipe = make_pipeline(tree_pre, tree_model)  # 设置机器学习流<br><br>tree_pipe.fit(X_train, y_train)  # 模型训练<br><br>result_df(tree_pipe, X_train, y_train, X_test, y_test)  # 显示评估指标结果<br></code></pre></td></tr></table></figure></p>
-<h3 id="参数优化">6.2 参数优化</h3>
-<p>  决策树的参数解释如下：</p>
-<table>
-
-<thead>
-<tr class="header">
-<th style="text-align: center;">Name</th>
-<th style="text-align: center;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">criterion</td>
-<td style="text-align: center;">规则评估指标或损失函数，默认基尼系数，可选信息熵</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">splitter</td>
-<td style="text-align: center;">树模型生长方式，默认以损失函数取值减少最快方式生长，可选随机根据某条件进行划分</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">max_depth</td>
-<td style="text-align: center;">树的最大生长深度，类似max_iter，即总共迭代几次</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">min_samples_split</td>
-<td style="text-align: center;">内部节点再划分所需最小样本数</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">min_samples_leaf</td>
-<td style="text-align: center;">叶节点包含最少样本数</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">min_weight_fraction_leaf</td>
-<td style="text-align: center;">叶节点所需最小权重和</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">max_features</td>
-<td style="text-align: center;">在进行切分时候最多带入多少个特征进行划分规则挑选</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">random_state</td>
-<td style="text-align: center;">随机数种子</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">max_leaf_nodes</td>
-<td style="text-align: center;">叶节点最大个数</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">min_impurity_decrease</td>
-<td style="text-align: center;">数据集再划分至少需要降低的损失值</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">min_impurity_split</td>
-<td style="text-align: center;">数据集再划分所需最低不纯度，将在0.25版本中移除</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">class_weight</td>
-<td style="text-align: center;">各类样本权重</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">presort</td>
-<td style="text-align: center;">已在0.24版本中移除</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">ccp_alpha</td>
-<td style="text-align: center;">在执行CART树原生原理中的剪枝流程时结构复杂度惩罚因子的系数，默认情况下不使用该方法进行剪枝</td>
-</tr>
-</tbody>
-</table>
-<p>ccp_alpha是决策树的结构风险系数，作用和Logistic回归中的C的作用类似，但二者取值刚好相反（ccp_alpha是结构风险系数，而C是经验风险系数）</p>
-<p><span class="math display">\[
-R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
-\]</span></p>
-<p>下面将min_samples_split、min_impurity_decrease、max_leaf_nodes和ccp_alpha带入进行调参。</p>
-<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs roboconf"><span class="hljs-comment"># tree_pipe.get_params()</span><br><span class="hljs-comment"># 构造包含阈值的参数空间</span><br>tree_param = &#123;&#x27;<span class="hljs-attribute">decisiontreeclassifier__ccp_alpha&#x27;</span>: np<span class="hljs-variable">.arange</span>(0, 1, 0.1)<span class="hljs-variable">.tolist</span>(),<br>              &#x27;decisiontreeclassifier__max_depth&#x27;: np<span class="hljs-variable">.arange</span>(2, 8, 1)<span class="hljs-variable">.tolist</span>(), <br>              &#x27;decisiontreeclassifier__min_samples_split&#x27;: np<span class="hljs-variable">.arange</span>(2, 5, 1)<span class="hljs-variable">.tolist</span>(), <br>              &#x27;decisiontreeclassifier__min_samples_leaf&#x27;: np<span class="hljs-variable">.arange</span>(1, 4, 1)<span class="hljs-variable">.tolist</span>(), <br>              &#x27;decisiontreeclassifier__max_leaf_nodes&#x27;:np<span class="hljs-variable">.arange</span>(6,10, 1)<span class="hljs-variable">.tolist</span>()<br>            &#125;<br><br></code></pre></td></tr></table></figure>
-<h3 id="模型解释">6.3 模型解释</h3>
-<ol type="1">
-<li>通过特征重要性</li>
-</ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs routeros">fi = tree_search.best_estimator_.name_steps[<span class="hljs-string">&#x27;decisiontreeclassifier&#x27;</span>].feature_importances_  # 特征重要性数值<br><br>col_names = category + numeric  # 特征名<br><br>feature_importances = pd.Series(fi, <span class="hljs-attribute">index</span>=col_names)<br>feature_importances.sort_values(<span class="hljs-attribute">ascending</span>=<span class="hljs-literal">False</span>)[:5].plot(<span class="hljs-attribute">kind</span>=<span class="hljs-string">&#x27;bar&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>若要精准的计算于解释特征重要性，可以考虑使用SHAP方法。此外，目前尚未接触到的一类特征重要性的用途是借助进行特征筛选，下一部分在讨论特征筛选时会具体讲解。</p>
-</blockquote>
-<ol start="2" type="1">
-<li>绘制树状图</li>
-</ol>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">plt.figure(figsize(<span class="hljs-number">16</span>,<span class="hljs-number">6</span>), dpi=<span class="hljs-number">200</span>)<br>tree.plot<span class="hljs-constructor">_tree(<span class="hljs-params">tree_search</span>.<span class="hljs-params">best_estimator_</span>.<span class="hljs-params">named_steps</span>[&#x27;<span class="hljs-params">decisiontreeclassifier</span>&#x27;])</span>;<br></code></pre></td></tr></table></figure>
+                <p>  接下来，将会开始阅读杨老师的《蝶变》系列，并进行整理归纳，总结感悟。
+<span id="more"></span></p>
+全文加上序章和后记共九章，按照每天一章进行，一方面总结内容，一方面写下感悟，注意结合当前智习室的研究方向做出思考。
+当前为5月13日，争取在下周一即5月22日前阅读并整理完第三部，写下相关感悟。
+<p align="right">
+lucky
+</p>
+<p align="right">
+时2023年5月13日
+</p>
 
                 
               </div>
@@ -392,15 +304,8 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
+  <a href="/categories/%E8%9D%B6%E5%8F%98%E4%B8%89/" class="category-chain-item">蝶变三</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" class="category-chain-item">特征工程</a>
-  
-  
-
   
 
       </span>
@@ -414,11 +319,7 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">#机器学习</a>
-      
-        <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">#特征工程</a>
-      
-        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">#决策树</a>
+        <a href="/tags/%E8%9D%B6%E5%8F%98/">#蝶变</a>
       
     </div>
   
@@ -430,8 +331,8 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>特征工程Part_6</div>
-      <div>http://example.com/2023/05/12/特征工程Part-6/</div>
+      <div>蝶变：商业进化的智能引擎</div>
+      <div>http://example.com/2023/05/13/蝶变：商业进化的智能引擎/</div>
     </div>
     <div class="license-meta">
       
@@ -443,7 +344,7 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2023年5月13日</div>
         </div>
       
       
@@ -475,9 +376,9 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/13/%E8%9D%B6%E5%8F%98%EF%BC%9A%E5%95%86%E4%B8%9A%E8%BF%9B%E5%8C%96%E7%9A%84%E6%99%BA%E8%83%BD%E5%BC%95%E6%93%8E/" title="蝶变：商业进化的智能引擎">
+                      <a href="/2023/05/13/%E8%9D%B6%E5%8F%98%E4%B8%89-%E5%BA%8F%E7%AB%A0/" title="蝶变三_序章">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">蝶变：商业进化的智能引擎</span>
+                        <span class="hidden-mobile">蝶变三_序章</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -485,8 +386,8 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/06/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B-Part5/" title="特征工程_Part5">
-                        <span class="hidden-mobile">特征工程_Part5</span>
+                      <a href="/2023/05/12/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8BPart-6/" title="特征工程Part_6">
+                        <span class="hidden-mobile">特征工程Part_6</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -543,12 +444,6 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
 
 
   
-
-
-  
-  
-
-
 
 
 
@@ -742,49 +637,6 @@ R_\alpha(T) = R(T) + \alpha|\widetilde{T}|
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
