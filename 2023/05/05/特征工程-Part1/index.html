@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/computer.jpg">
 <meta property="article:published_time" content="2023-05-05T11:11:57.000Z">
-<meta property="article:modified_time" content="2023-05-12T12:46:35.439Z">
+<meta property="article:modified_time" content="2023-05-14T12:48:15.472Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="特征工程">
@@ -297,12 +297,13 @@
 <li><p>缺失值检验 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">missing</span>(<span class="hljs-params">df</span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    计算每一列的缺失值及占比</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    missing_number = df.isnull().<span class="hljs-built_in">sum</span>().sort_values(ascending=<span class="hljs-literal">False</span>)<br>    missing_percent = (df.isnull().<span class="hljs-built_in">sum</span>()/df.isnull().count()).sort_values(ascending=<span class="hljs-literal">False</span>)<br>    missing_values = pd.concat([missing_number, missing_percent], keys=[<span class="hljs-string">&quot;missing_number&quot;</span>, <span class="hljs-string">&quot;missing_percent&quot;</span>])<br><br>    <span class="hljs-keyword">return</span> missing_values<br><br></code></pre></td></tr></table></figure></p></li>
 <li><p>连续离散变量标注</p></li>
 </ol>
-<p>下面将object类型字段提取出来进行处理
-<code>tcc.select_dtypes("object").columns  #直接提取object类型字段</code></p>
-<p>查看dataframe各列的取值 <code>df.nunique() # 查看不同取值个数</code>
+<p>下面将object类型字段提取出来进行处理</p>
+<p><code>tcc.select_dtypes("object").columns  #直接提取object类型字段</code></p>
+<p>查看dataframe各列的取值</p>
+<p><code>df.nunique() # 查看不同取值个数</code>
 <code>df.unique()  # 查看取值</code></p>
-<p>查看某列不同取值出现的次数
-<code>df["B"].explode().value_counts().to_dict()</code></p>
+<p>查看某列不同取值出现的次数</p>
+<p><code>df["B"].explode().value_counts().to_dict()</code></p>
 <ol start="4" type="1">
 <li>缺失值替换 法1： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span> = tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span><span class="hljs-selector-class">.apply</span>(lambda x: x <span class="hljs-keyword">if</span> x != <span class="hljs-string">&quot; &quot;</span> <span class="hljs-keyword">else</span> np.nan)<span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br>tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span> = tcc<span class="hljs-selector-attr">[<span class="hljs-string">&quot;totalcharges&quot;</span>]</span><span class="hljs-selector-class">.astype</span>(<span class="hljs-attribute">float</span>)<br></code></pre></td></tr></table></figure> 法2： <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">df1.TotalCharges = pd.<span class="hljs-keyword">to</span><span class="hljs-constructor">_numeric(<span class="hljs-params">df1</span>.TotalCharges, <span class="hljs-params">errors</span>=<span class="hljs-string">&quot;coerce&quot;</span>)</span> # <span class="hljs-string">&quot;coerce&quot;</span>表示无法转化的用缺失值填补<br></code></pre></td></tr></table></figure></li>
 <li>异常值点检测</li>
