@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>蝶变三_第四章</title>
+    <link href="/2023/05/16/%E8%9D%B6%E5%8F%98%E4%B8%89-%E7%AC%AC%E5%9B%9B%E7%AB%A0/"/>
+    <url>/2023/05/16/%E8%9D%B6%E5%8F%98%E4%B8%89-%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
+    
+    <content type="html"><![CDATA[<p>接下来，将会开始阅读杨老师的《蝶变》系列，并进行整理归纳，总结感悟。</p><p>该篇为蝶变三的第四章 <span id="more"></span></p><h1 id="智算代劳">4.智算代劳</h1><p>  该章主要讲述数据或者说是人工智能开始代替传统方式的优势。首先通过将实物进行数据表征和数据透视，这种透视或表征一旦完成，就会形成具体实在的一个虚拟表示，这种虚拟表示能够在一定程度上代替实物进行关系链接，就有可能造成上一章所描述的关系重塑，这也是引起传统架构重塑的重要导火线。在本章中，作者还指出这也会导致实物原本的价值被放大。</p><p>  从营销角度看这越来越指向单一的或者小众的客户，在传统营销无法顾及他们的情况下，数字化技术改变了这一现状，实现了营销数值的进一步增长，也就是所谓的长尾效应(longtail)。</p><p>作者指出人工智能开始替代人类的原因：它们有“人工不能”的能。</p><ol type="1"><li>人工不能不休息。</li><li>人不能一直保持头脑清醒</li><li>人不能客服贪欲</li><li>人不能没有感情</li><li>人不能没有享乐</li><li>人不能复制人</li><li>人不能离开人</li></ol><p>而人工智能恰能弥补这些缺点，在这些方面它们替代人类也就成了必然的趋势。</p><p>  在这里作者也清晰的给了人工智能一个定位：让人工智能在我们不能做到的地方做的更好！这指出了人工智能在人类发展过程中的辅助作用，也表明没有人类就没有人工智能，人工智能应当是人类进行价值创造的辅助工具或是助手。</p><p align="right">lucky</p><p align="right">时2023年5月16日</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>蝶变三</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>蝶变</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>蝶变三_第三章</title>
     <link href="/2023/05/15/%E8%9D%B6%E5%8F%98%E4%B8%89-%E7%AC%AC%E4%B8%89%E7%AB%A0/"/>
     <url>/2023/05/15/%E8%9D%B6%E5%8F%98%E4%B8%89-%E7%AC%AC%E4%B8%89%E7%AB%A0/</url>
@@ -487,25 +512,6 @@
     <url>/2021/04/07/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
     
     <content type="html"><![CDATA[<p>平常经常用有道云笔记这个软件做笔记，我感觉用着还算不错，在怎么插入图片上查了好些方法，都显示不出来，偶尔翻到一个，突然解决了，在此简单记录<span id="more"></span> 首先，你要把新建一个文件夹，把图片放到里面。 <img src="https://note.youdao.com/yws/api/personal/file/WEBfe7d0f50bf5edf2288a0812264a01c70?method=download&amp;shareKey=94bf5b4273a390fc09ef14ce34439043" alt="image"> 然后分享 <img src="https://note.youdao.com/yws/api/personal/file/WEBc9a25d09d2b2a719d32b450c67027199?method=download&amp;shareKey=f3c70ead5fc523397dade3c906225333" alt="image2"> 复制链接 <img src="https://note.youdao.com/yws/api/personal/file/WEB92fc45f4a41894039479e7e0164f54fb?method=download&amp;shareKey=6c9cffd44b504b0dd8de29cabf2d405b" alt="image3"> 到浏览器上打开,复制链接 <img src="https://note.youdao.com/yws/api/personal/file/WEBd43706e509bcbf94d3b2280ef47a31ee?method=download&amp;shareKey=eafff8cb4d4bbb874ca08af10d2c90dd" alt="image4"> 在你想插入图片的地方</p><pre><code class="hljs">![image](复制的图片链接)</code></pre><p>然后你就会发现显示成功！</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题解决</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>m1 docker</title>
-    <link href="/2021/04/04/m1-docker/"/>
-    <url>/2021/04/04/m1-docker/</url>
-    
-    <content type="html"><![CDATA[<p>因为我的电脑刚买不久，买的m1，，之前m1的docker启不起来，<span id="more"></span>现在出了，我是在https://www.docker.com/blog/download-and-try-the-tech-preview-of-docker-desktop-for-m1/这个网站下载的用着不错，成功启动！</p><figure><embed src="https://note.youdao.com/ynoteshare1/index.html?id=4e6198b7f733ba67d0993b1461864a07&amp;type=note"><figcaption aria-hidden="true">docker</figcaption></figure>]]></content>
     
     
     <categories>
