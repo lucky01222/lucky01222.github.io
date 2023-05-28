@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>ChatGPT_Part1</title>
+    <link href="/2023/05/26/ChatGPT-Part1/"/>
+    <url>/2023/05/26/ChatGPT-Part1/</url>
+    
+    <content type="html"><![CDATA[<p>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。</p><p>本篇为ChatGPT第一部分，关于OpenAI账户注册 <span id="more"></span></p><p>一、 谷歌邮箱注册</p><ol type="1"><li><p>进入注册页面https://accounts.google.com/signup，并完成相关信息填写，直到需要验证手机号码那一步。<em>注意：需要开启魔法</em></p></li><li><p>登陆https://sms-activate.org/，完成相关服务购买，先注册，可以直接用QQ邮箱。注册好后需要进行充值，可以使用支付宝。<em>注意：不需要开启魔法</em></p></li><li><p>点击<strong>服务</strong>，在网站搜索Gmail,选择巴西或美国，不要用印度，租赁之后回到第一步填写手机号进行验证，之后输入验证码即可。</p></li></ol><p>二、OpenAI账号注册<em>注意：需要开启魔法</em></p><ol type="1"><li><p>进入注册界面，进入https://openai.com/，点击learn aboutgpt4(左上角),点击signup</p></li><li><p>利用邮箱完成注册，输入邮箱和账户密码并进行验证，点击邮箱验证链接，会回转到注册页面，随便填写信息。之后需要手机号验证，和之前手机号的步骤一样，但不能用之前的，需要重新购买一个，这次是搜索openai。</p></li></ol><p>之后就注册成功啦！可以免费试用GPT3.5，GPT4需要付费才能使用。</p><p align="right">lukcy</p><p align="right">时2023年5月26日</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>大模型应用</category>
+      
+      <category>ChatGPT</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI</tag>
+      
+      <tag>ChatGPT</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>AI</title>
+    <link href="/2023/05/26/AI/"/>
+    <url>/2023/05/26/AI/</url>
+    
+    <content type="html"><![CDATA[<p>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。</p><span id="more"></span><p>一开始是ChatGPT，记录一些注册过程和使用时的一些提示词，之后会是一些其他应用的学习记录，再有等之后再进行补充吧。</p><p align="right">lucky</p><p align="right">时2023年5月26日</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>大模型应用</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>蝶变四_序章</title>
     <link href="/2023/05/26/%E8%9D%B6%E5%8F%98%E5%9B%9B-%E5%BA%8F%E7%AB%A0/"/>
     <url>/2023/05/26/%E8%9D%B6%E5%8F%98%E5%9B%9B-%E5%BA%8F%E7%AB%A0/</url>
