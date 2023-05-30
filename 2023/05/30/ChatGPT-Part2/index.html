@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/AI/artificial-intelligence.jpg">
 <meta property="article:published_time" content="2023-05-30T07:34:28.000Z">
-<meta property="article:modified_time" content="2023-05-30T08:59:07.743Z">
+<meta property="article:modified_time" content="2023-05-30T13:00:28.738Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="ChatGPT">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          963 字
+          1.5k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          9 分钟
+          13 分钟
         
       </span>
     
@@ -322,6 +322,23 @@ prompt 生成正确答案及相应理由，汇总到微调数据集中</li>
 <li>使用最后的微调模型</li>
 </ol>
 <p>没啥用感觉，主要还是前几步结合一下会好些。</p>
+<h2 id="试验情况">2.4 试验情况</h2>
+<p>今天用来生成了一下指导记录，在此简单对提示过程进行总结。</p>
+<ol type="1">
+<li>生成1-10周的内容</li>
+</ol>
+<p>使用下来看，3.5对数字确实不太敏感，他没办法很好的按我指定的字数进行输出，字数和我要求的总是有一些差别，但内容总体还可以。</p>
+<p>字数上当我要求它一下完成1-10周的内容输出时，每周分配的内容就会很少。而当我单独要求对每一周的内容进行丰富时，它就会输出的过多，即便是我要求它输出200到300字它依旧能给我干到600多。</p>
+<ol start="2" type="1">
+<li>文章翻译</li>
+</ol>
+<p>直接zero-shot，让它把自己看做一个翻译器，直接帮我进行专业翻译。我体验下来感觉是显著的比机翻要好一些。我也尝试用了ChatPDF(关于ChatPDF的具体介绍后面会进行补充)，但它很智能的拒绝了我，说它不是一个翻译机器，而是辅助进行文献理解的工具，只能帮我翻译部分段落，搞得好像很有人格的样子。然后我就让它对第一段进行翻译，对第二段进行翻译。。。
+感觉还行，其实和3.5的翻译效果差不多，但要是考虑到帮助进行文献理解的功能可能就要强一点了。</p>
+<ol start="3" type="1">
+<li>数学计算</li>
+</ol>
+<p>如前所述，一言难尽，不要勉强孩子了。。。</p>
+<p>补充：Codegeex文字方面的自动补全也挺没用的其实，就没输出过有用的，关于Codegeex的具体介绍见<a href="https://lucky01222.github.io/2023/05/29/Codegeex/" class="uri">https://lucky01222.github.io/2023/05/29/Codegeex/</a>。</p>
 <p align="right">
 lucky
 </p>
