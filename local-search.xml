@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Codegeex</title>
+    <link href="/2023/05/29/Codegeex/"/>
+    <url>/2023/05/29/Codegeex/</url>
+    
+    <content type="html"><![CDATA[<p>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。</p><p>本篇为关于辅助代码工具Codegeex的介绍。 <span id="more"></span></p><h1 id="codegeex">Codegeex</h1><h2 id="功能介绍">功能介绍</h2><p>官网链接：https://codegeex.cn/zh-CN</p><p>以下内容摘自：https://keg.cs.tsinghua.edu.cn/codegeex/index_zh.htmlCodeGeeX是一个具有130亿参数的多编程语言代码生成预训练模型。CodeGeeX采用华为MindSpore框架实现，在鹏城实验室“鹏城云脑II”中的192个节点（共1536个国产昇腾910AI处理器）上训练而成。截至2022年6月22日，CodeGeeX历时两个月在20多种编程语言的代码语料库（&gt;8500亿Token）上预训练得到。CodeGeeX有以下特点：-高精度代码生成：支持生成Python、C++、Java、JavaScript和Go等多种主流编程语言的代码，在HumanEval-X代码生成任务上取得47%~60%求解率，较其他开源基线模型有更佳的平均性能。-跨语言代码翻译：支持代码片段在不同编程语言间进行自动翻译转换，翻译结果正确率高，在HumanEval-X代码翻译任务上超越了其它基线模型。-自动编程插件：CodeGeeX插件现已上架VSCode插件市场（完全免费），用户可以通过其强大的少样本生成能力，自定义代码生成风格和能力，更好辅助代码编写。- 模型跨平台开源:所有代码和模型权重开源开放，用作研究用途。CodeGeeX同时支持昇腾和英伟达平台，可在单张昇腾910或英伟达V100/A100上实现推理。</p><h2 id="使用体验">使用体验</h2><p>我目前在vscode上进行使用，目前来看体验还不错，它主要有三个功能:</p><ol type="1"><li>Ask codegeex</li></ol><p>类似于chatgpt，它可以与你进行交互，让它根据你的描述进行代码编写。我问了它能帮我做什么事情，以下是它给我的回答：</p><p>你好!我是一个人工智能助手,我能够完成很多不同类型的任务,例如:</p><p>回答常见问题:我可以回答关于各种主题的问题,例如科学、历史、文化、技术等等。提供信息:我可以提供各种信息,例如新闻、天气、汇率、股票等等。翻译:我可以提供翻译服务,例如翻译中文到英文、英文到中文等等。编写文章:我可以根据你的要求编写文章,例如撰写电子邮件、文章摘要、新闻报道等等。进行对话:我可以进行简单的对话,例如闲聊、解答疑惑等等。希望这些介绍能够帮助你更好地了解我,如果你有任何需要,随时都可以向我提问。</p><p>因此我就和它闲聊了一下，感觉确实不如chatgpt3.5。</p><ol start="2" type="1"><li>Translation</li></ol><p>这个功能感觉确实挺牛的，能帮你把代码翻译成其他你想要的语言。比如可以把python翻译成c语言，把c#翻译成python等等。不过我会的确实有点少，而且水平较低，没有办法很好的评价这个功能效果有多好，不过我们可以让chatgpt4帮我们完成这个工作呀！</p><ol start="3" type="1"><li>自动补全</li></ol><p>这个功能代码方面我还没有用很多，但文字输出确实比较拉胯，不知道在代码实现这块能不能提供有用的帮助，但有总比没有强，算是聊胜于无吧。</p><h2 id="插件评价">插件评价</h2><p>总体来说这个插件功能还是非常好的，一方面它展现了国内大模型的能力，另一方面它作为一个开源工具使用起来还是很舒服的，比较适合我这种目前没什么工资，更多的还是以学习锻炼为主要目的的研究者的。</p><p align="right">lukcy</p><p align="right">时2023年5月26日</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>大模型应用</category>
+      
+      <category>代码辅助工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI</tag>
+      
+      <tag>Code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ChatGPT_Part1</title>
     <link href="/2023/05/26/ChatGPT-Part1/"/>
     <url>/2023/05/26/ChatGPT-Part1/</url>
@@ -15,7 +44,7 @@
       
       <category>大模型应用</category>
       
-      <category>ChatGPT</category>
+      <category>对话辅助工具</category>
       
     </categories>
     
