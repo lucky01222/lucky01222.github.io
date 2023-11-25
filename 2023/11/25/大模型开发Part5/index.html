@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/AI/artificial-intelligence.jpg">
 <meta property="article:published_time" content="2023-11-25T06:48:48.000Z">
-<meta property="article:modified_time" content="2023-11-25T08:23:25.628Z">
+<meta property="article:modified_time" content="2023-11-25T10:41:02.456Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="GPT模型开发">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          3.9k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          19 分钟
+          33 分钟
         
       </span>
     
@@ -289,7 +289,43 @@
 <p><strong>确定函数功能：生成文件夹保存检索内容，将生成的DataFrame表格保存在文件夹内。</strong></p>
 <p>代码如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save</span>(<span class="hljs-params">data, search_key_dict, method=<span class="hljs-number">2</span></span>):</span><br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    保存文件函数，具备以下几个功能：</span><br><span class="hljs-string">    1.自动生成文件名</span><br><span class="hljs-string">    2.以该文件名生成文件夹</span><br><span class="hljs-string">    3.保存数据表格</span><br><span class="hljs-string">    :param: 必选，类型为DataFrame，要保存的数据表格</span><br><span class="hljs-string">    :search_key_dict:必选，类型为dict,检索论文关键词字典</span><br><span class="hljs-string">    :method:可选(1/2),1表示生成文件名后判断是否采用，2表示自动生成，不进行判断，默认为2</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    file_name = mksearch_name(search_key_dict,method=method)<br>    <span class="hljs-comment">#文件夹路径</span><br>    directory = <span class="hljs-string">&#x27;/Users/uckily/Desktop/大模型课件/blog/Paper/%s&#x27;</span> % file_name<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(directory):<br>        os.makedirs(directory)<br>    <span class="hljs-comment"># 保存xlsx文件</span><br>    frame_path = directory + <span class="hljs-string">&#x27;/%s.xlsx&#x27;</span>%file_name<br>    data.to_excel(frame_path,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br></code></pre></td></tr></table></figure>
-<p>经过测试，能够自动生成文件名并将我们提取到的论文数据保存到指定文件夹内。至此我们完成了对数据文件的管理！！！</p>
+<p>经过测试，能够自动生成文件名并将我们提取到的论文数据保存到指定文件夹内。</p>
+<p>之后考虑将之前封装的函数Paper_Search_ZW进行改动以适应当前的需求，使得其作为一个总的封装更加简洁。</p>
+<p>def Scraper_ZW(search_key_dict,page_num_total=20): """
+爬取知网文章信息，以表格形式整理。 :param
+search_key_dict:必选，类型为dict,检索论文关键词字典. :param
+page_num_total:默认爬取的论文页数，如果检索到的没有达到页数要求，则会爬取所有
+:return: 爬取到的文章信息表 """ # 网站和请求头信息 base_url =
+'http://search.cnki.com.cn/Search/ListResult' headers = {'User-Agent':
+'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+like Gecko) Chrome/110.0.0.0 Safari/537.36',} # 获取网站源码 html =
+get_page_text(base_url, headers, search_key_dict, page_num=1) #
+查找到的文献数量 num = int(re.search(r'$("#totalcount").html("()")',
+html).group(1)) print("为您查找到{}篇文献".format(num)) #
+默认爬取前五页文献信息，不到则取最大 if num//20 &gt;= page_num_total:
+print('共爬取前{}条'.format(page_num_total<em>20)) else: page_num_total
+= num//20 print('共爬取前{}条'.format((num//20)</em>20)) # 开始爬取内容
+print('开始爬取') print('检索关键词如下：') print(search_key_dict)
+page_info=[] for page_num in tqdm(range(page_num_total)): html =
+get_page_text(base_url, headers, search_key_dict, page_num=page_num)
+page_info+=parse_page_text(html) # 生成表格 columns =['title', 'author',
+'paper_source', 'paper_type', 'date', 'abstract', 'keywords',
+'download', 'refer', 'link'] # 设置表头 data = pd.DataFrame(page_info,
+columns=columns)</p>
+<pre><code class="hljs">return data</code></pre>
+<p>def Paper_Search_ZW(dict_method=2, name_method=2, page_num_total=20):
+""" 知网论文检索函数，旨在帮助科研人员进行高效知网论文检索 :param
+dict_method:论文搜索关键词生成模式。两种模式可选(1/2),默认为2。
+1：手动输入关键词，2：输入一段内容，由大模型去进行生成。 :param
+name_method:检索论文文件命名生成模式。两种模式可选(1/2),默认为2。
+1：在生成之后判断是否要使用该文件名，2：生成后无需再改 :param
+page_num_total:默认爬取的论文页数，如果检索到的没有达到页数要求，则会爬取所有
+""" search_key_dict = mksearch_dict(method=dict_method,
+model='gpt-4-1106-preview') data =
+Scraper_ZW(search_key_dict=search_key_dict,
+page_num_total=page_num_total) save(data=data,
+search_key_dict=search_key_dict,method=name_method)</p>
+<p>至此我们完成了对数据文件的管理和Paper_Search_ZW的重构！！！</p>
 <p align="right">
 lucky
 </p>
