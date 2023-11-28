@@ -16,25 +16,25 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累，目标是利用大模型来辅助科研。 本篇为GPT模型开发第一部分">
+    <meta name="description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。 本篇为关于前端界面生成工具的介绍。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大模型开发_Part1">
-<meta property="og:url" content="http://example.com/2023/11/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91Part1/index.html">
+<meta property="og:title" content="screenshot-to-code">
+<meta property="og:url" content="http://example.com/2023/11/28/screenshot-to-code/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累，目标是利用大模型来辅助科研。 本篇为GPT模型开发第一部分">
+<meta property="og:description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。 本篇为关于前端界面生成工具的介绍。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/AI/artificial-intelligence.jpg">
-<meta property="article:published_time" content="2023-11-22T05:40:05.000Z">
-<meta property="article:modified_time" content="2023-11-28T08:47:49.812Z">
+<meta property="article:published_time" content="2023-11-28T08:46:17.000Z">
+<meta property="article:modified_time" content="2023-11-28T09:12:17.710Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="AI">
-<meta property="article:tag" content="GPT模型开发">
+<meta property="article:tag" content="Code">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/images/AI/artificial-intelligence.jpg">
   
   
   
-  <title>大模型开发_Part1 - lucky的个人博客</title>
+  <title>screenshot-to-code - lucky的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="大模型开发_Part1"></span>
+            <span id="subtitle" data-typed-text="screenshot-to-code"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-22 13:40" pubdate>
-          2023年11月22日 下午
+        <time datetime="2023-11-28 16:46" pubdate>
+          2023年11月28日 下午
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          700 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          19 分钟
+          6 分钟
         
       </span>
     
@@ -272,39 +272,37 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">大模型开发_Part1</h1>
+            <h1 style="display: none">screenshot-to-code</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累，目标是利用大模型来辅助科研。</strong></p>
-<p><strong>本篇为GPT模型开发第一部分</strong> <span id="more"></span></p>
-<h1 id="chat模型使用">Chat模型使用</h1>
-<h2 id="获取openai_api_key并使用chat模型">1.获取OpenAI_API_KEY并使用Chat模型</h2>
-<h3 id="在官网上获取api_kay并保存为环境变量">在官网上获取API_KAY并保存为环境变量</h3>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">设置环境变量<br><span class="hljs-keyword">echo</span> &#x27;export OPENAI_API_KEY=<span class="hljs-string">&quot;your_api_key&quot;</span>&#x27; &gt;&gt; ~<span class="hljs-string">/.zshrc</span>&#x27;<br>更新环境变量<br>source ~<span class="hljs-string">/.zshrc</span><br>查看环境变量<br><span class="hljs-keyword">echo</span> $OPENAI_API_KEY<br></code></pre></td></tr></table></figure>
-<p>在python环境中调用：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> openai<br><span class="hljs-title">openai</span>.api_key = os.getenv(<span class="hljs-string">&quot;OPENAI_API_KEY&quot;</span>)<br></code></pre></td></tr></table></figure>
-<h3 id="进行chat模型的简单调用">进行Chat模型的简单调用</h3>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros">reponse = openai.ChatCompletion.create(<br>    <span class="hljs-attribute">model</span>=<span class="hljs-string">&quot;gpt-3.5-turbo-1106&quot;</span>,<br>    messages=[<br>        &#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;你是谁?&quot;</span>&#125;<br>    ]<br>)<br><br><span class="hljs-builtin-name">print</span>(response.choices[0].message[<span class="hljs-string">&#x27;content&#x27;</span>])<br>response.usage<br></code></pre></td></tr></table></figure>
-<h3 id="参数解释">参数解释</h3>
-<p>详细解释:<a href="https://platform.openai.com/docs/api-reference/chat/create" class="uri">https://platform.openai.com/docs/api-reference/chat/create</a></p>
-<h4 id="message">message</h4>
-<p> message
-为一个列表，里面包含多个以role和content为键的字典，role的值为对话角色,content值为对话内容。
-其中role的值通常可取user、assistent、system。其中system一般是你为对话设置的前提或者是需要模型以此为参考的模板，比如“你是一位市场营销人员”或者“这是一份营销分析报告的模版”。</p>
-<h4 id="model">model</h4>
-<p>经过更新之后当前推荐的gpt模型为：</p>
-<p>gpt-4-1106-preview</p>
-<p>gpt-3.5-turbo-1106</p>
-<p>可以访问<a href="https://openai.com/pricing" class="uri">https://openai.com/pricing</a>查看当前的模型名称和价格进行选择</p>
-<h1 id="利用chat模型进行长对话">2.利用Chat模型进行长对话</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">chat_with_model</span>(<span class="hljs-params">system_message=<span class="hljs-string">&#x27;&#x27;</span>, prompt=<span class="hljs-string">&#x27;你好&#x27;</span> , model=<span class="hljs-string">&#x27;gpt-3.5-turbo-1106&#x27;</span></span>):</span><br>    <span class="hljs-comment"># 初始对话message</span><br>    message = [<br>        &#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;system&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: system_message&#125;,<br>        &#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>: prompt&#125;<br>    ]<br>    <span class="hljs-comment"># 设置tokens阈值，防止花的过多</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;gpt-4&#x27;</span> <span class="hljs-keyword">in</span> model:<br>        tokens_thr = <span class="hljs-number">10000</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;开始调用gpt-4进行回答，设置tokens阈值为&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(tokens_thr))<br>    <span class="hljs-keyword">else</span>:<br>        tokens_thr = <span class="hljs-number">4000</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;开始调用gpt-3进行回答，设置tokens阈值为&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(tokens_thr))<br>    encoding = tiktoken.encoding_for_model(model)<br>    tokens_count = <span class="hljs-number">0</span><br><br>    <span class="hljs-comment"># 多轮对话循环</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        response = openai.ChatCompletion.create(<br>            model=model,<br>            messages=message,<br>        )<br>        answer = response.choices[<span class="hljs-number">0</span>].message[<span class="hljs-string">&#x27;content&#x27;</span>]<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;assistent:&quot;</span>, answer)<br><br>        user_input = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;您有什么问题吗？(输入退出以结束对话): &quot;</span>)<br>        <span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;退出&quot;</span>:<br>            <span class="hljs-keyword">break</span><br>        <span class="hljs-comment"># 记录用户问题</span><br>        message.append(&#123;<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>:user_input&#125;)<br>        tokens_count = response.usage[<span class="hljs-string">&quot;total_tokens&quot;</span>] + <span class="hljs-built_in">len</span>(encoding.encode(user_input))<br><br>        <span class="hljs-comment"># 删除超出token阈值的部分</span><br>        <span class="hljs-keyword">while</span> tokens_count &gt;= tokens_thr:<br>            tokens_count -= <span class="hljs-built_in">len</span>(encoding.encode(message.pop(<span class="hljs-number">1</span>)[<span class="hljs-string">&quot;content&quot;</span>]))<br></code></pre></td></tr></table></figure>
+                <p>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。</p>
+<p>本篇为关于前端界面生成工具的介绍。 <span id="more"></span> # Codegeex</p>
+<h2 id="功能介绍">功能介绍</h2>
+<p> 本篇要介绍的是一个在github上开源的项目screenshot-to-code，该项目能够直接通过输入网站界面的截图将之转化为相似的界面，并提供相应的实现代码。</p>
+<p> 项目具体细节可以在github上进行查看，这里给出该项目的链接：<a href="https://github.com/abi/screenshot-to-code" class="uri">https://github.com/abi/screenshot-to-code</a></p>
+<h2 id="使用说明">使用说明</h2>
+<ol type="1">
+<li>首先需要有gpt的API</li>
+<li>要用到poetry,可通过命令<code>pip install poetry</code>进行安装</li>
+</ol>
+<p>开两个命令行，一个前端，一个后端到项目目录下。
+之后即可运行以下命令启动该应用。</p>
+<p>后端： <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> backend<br><span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;OPENAI_API_KEY=sk-your-key&quot;</span> &gt; <span class="hljs-string">.env</span>  <span class="hljs-comment"># 将你的API_KEY输入环境变量，如果已经设置就不需要再运行该命令了</span><br>poetry install<br>poetry shell<br>poetry run uvicorn main<span class="hljs-function">:app</span> <span class="hljs-params">--reload</span> <span class="hljs-params">--port</span> 7001<br></code></pre></td></tr></table></figure> 前端： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> frontend<br>yarn<br>yarn dev<br></code></pre></td></tr></table></figure></p>
+<p>运行之后就可以在设置的端口打开该应用了，默认为该网址：<a href="http://localhost:5173/" class="uri">http://localhost:5173/</a></p>
+<h2 id="效果展示">效果展示</h2>
+<p>点击网址后进入如下界面，将截图放入即可自动生成</p>
+<p><img src="/images/screenshot-to-code/1.png" srcset="/img/loading.gif" lazyload></p>
+<p>我将ChatGPT3.5的界面截图后放入的效果如下：</p>
+<p><img src="/images/screenshot-to-code/1.png" srcset="/img/loading.gif" lazyload></p>
+<p>如图，效果还是非常不错的，也可以在旁边的提示栏对没处理到位的地方进行提示使其有更好的表现，调好后点击下载即可！</p>
+<p>有了这个工具，前端人员再写一些图形界面时将节约大量时间。</p>
 <p align="right">
-lucky
+lukcy
 </p>
 <p align="right">
-时2023年11月23日
+时2023年5月26日
 </p>
 
                 
@@ -329,7 +327,7 @@ lucky
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/GPT%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" class="category-chain-item">GPT应用开发</a>
+  <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/%E5%89%8D%E7%AB%AF%E7%95%8C%E9%9D%A2%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="category-chain-item">前端界面生成工具</a>
   
   
 
@@ -348,7 +346,7 @@ lucky
       
         <a href="/tags/AI/">#AI</a>
       
-        <a href="/tags/GPT%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/">#GPT模型开发</a>
+        <a href="/tags/Code/">#Code</a>
       
     </div>
   
@@ -360,8 +358,8 @@ lucky
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>大模型开发_Part1</div>
-      <div>http://example.com/2023/11/22/大模型开发Part1/</div>
+      <div>screenshot-to-code</div>
+      <div>http://example.com/2023/11/28/screenshot-to-code/</div>
     </div>
     <div class="license-meta">
       
@@ -373,7 +371,7 @@ lucky
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月22日</div>
+          <div>2023年11月28日</div>
         </div>
       
       
@@ -405,18 +403,12 @@ lucky
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/23/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91Part2/" title="大模型开发Part2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">大模型开发Part2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/02/%E8%9D%B6%E5%8F%98%E5%9B%9B-%E7%AC%AC%E4%BA%94%E7%AB%A0/" title="蝶变四_第五章">
-                        <span class="hidden-mobile">蝶变四_第五章</span>
+                      <a href="/2023/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91Part6/" title="大模型开发Part6">
+                        <span class="hidden-mobile">大模型开发Part6</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
