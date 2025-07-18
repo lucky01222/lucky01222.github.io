@@ -16,25 +16,25 @@
   <meta name="author" content="uckily">
   <meta name="keywords" content="">
   
-    <meta name="description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。 本篇为关于前端界面生成工具的介绍。">
+    <meta name="description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累，目标是利用大模型来辅助科研。 本篇为GPT模型开发第七部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="screenshot-to-code">
-<meta property="og:url" content="http://example.com/2023/11/28/screenshot-to-code/index.html">
+<meta property="og:title" content="大模型开发Part7">
+<meta property="og:url" content="http://example.com/2024/04/02/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91Part7/index.html">
 <meta property="og:site_name" content="lucky的个人博客">
-<meta property="og:description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。 本篇为关于前端界面生成工具的介绍。">
+<meta property="og:description" content="接下来将会开一大模型分类，主要记录对大模型的学习过程和积累，目标是利用大模型来辅助科研。 本篇为GPT模型开发第七部分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/AI/artificial-intelligence.jpg">
-<meta property="article:published_time" content="2023-11-28T08:46:17.000Z">
-<meta property="article:modified_time" content="2023-11-28T09:42:28.154Z">
+<meta property="article:published_time" content="2024-04-02T10:18:29.000Z">
+<meta property="article:modified_time" content="2024-04-02T12:57:53.971Z">
 <meta property="article:author" content="uckily">
 <meta property="article:tag" content="AI">
-<meta property="article:tag" content="Code">
+<meta property="article:tag" content="GPT模型开发">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/images/AI/artificial-intelligence.jpg">
   
   
   
-  <title>screenshot-to-code - lucky的个人博客</title>
+  <title>大模型开发Part7 - lucky的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="screenshot-to-code"></span>
+            <span id="subtitle" data-typed-text="大模型开发Part7"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-28 16:46" pubdate>
-          2023年11月28日 下午
+        <time datetime="2024-04-02 18:18" pubdate>
+          2024年4月2日 晚上
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          700 字
+          353 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          6 分钟
+          3 分钟
         
       </span>
     
@@ -272,38 +272,17 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">screenshot-to-code</h1>
+            <h1 style="display: none">大模型开发Part7</h1>
             
             
               <div class="markdown-body">
                 
-                <p>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累。</p>
-<p>本篇为关于前端界面生成工具的介绍。 <span id="more"></span> # Codegeex</p>
-<h2 id="功能介绍">功能介绍</h2>
-<p> 本篇要介绍的是一个在github上开源的项目screenshot-to-code，该项目能够直接通过输入网站界面的截图将之转化为相似的界面，并提供相应的实现代码。</p>
-<p> 项目具体细节可以在github上进行查看，这里给出该项目的链接：<a href="https://github.com/abi/screenshot-to-code" class="uri">https://github.com/abi/screenshot-to-code</a></p>
-<h2 id="使用说明">使用说明</h2>
-<ol type="1">
-<li>首先需要有gpt的API</li>
-<li>要用到poetry,可通过命令<code>pip install poetry</code>进行安装</li>
-</ol>
-<p>开两个命令行，一个前端，一个后端到项目目录下。
-之后即可运行以下命令启动该应用。</p>
-<p>后端： <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-keyword">cd</span> backend<br><span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;OPENAI_API_KEY=sk-your-key&quot;</span> &gt; <span class="hljs-string">.env</span>  <span class="hljs-comment"># 将你的API_KEY输入环境变量，如果已经设置就不需要再运行该命令了</span><br>poetry install<br>poetry shell<br>poetry run uvicorn main<span class="hljs-function">:app</span> <span class="hljs-params">--reload</span> <span class="hljs-params">--port</span> 7001<br></code></pre></td></tr></table></figure> 前端： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> frontend<br>yarn<br>yarn dev<br></code></pre></td></tr></table></figure></p>
-<p>运行之后就可以在设置的端口打开该应用了，默认为该网址：<a href="http://localhost:5173/" class="uri">http://localhost:5173/</a></p>
-<h2 id="效果展示">效果展示</h2>
-<p>点击网址后进入如下界面，将截图放入即可自动生成</p>
-<p><img src="/images/screenshot-to-code/1.png" srcset="/img/loading.gif" lazyload></p>
-<p>我将ChatGPT3.5的界面截图后放入的效果如下：</p>
-<p><img src="/images/screenshot-to-code/2.png" srcset="/img/loading.gif" lazyload></p>
-<p>如图，效果还是非常不错的，也可以在旁边的提示栏对没处理到位的地方进行提示使其有更好的表现，调好后点击下载即可！</p>
-<p>有了这个工具，前端人员再写一些图形界面时将节约大量时间。</p>
-<p align="right">
-lukcy
-</p>
-<p align="right">
-时2023年5月26日
-</p>
+                <p><strong>接下来将会开一大模型分类，主要记录对大模型的学习过程和积累，目标是利用大模型来辅助科研。</strong></p>
+<p><strong>本篇为GPT模型开发第七部分</strong> <span id="more"></span></p>
+<p>外部函数出了蛮多问题的，调用的时候很容易被封，用代理池去做的话又担心涉及法律问题，再加上实验室另有安排，故暂时不再继续进行这个外部函数的调整。</p>
+<p>我们实验室目前是需要一个能够辅助大家完成各项科研工作的科研工具，接下来的开发也会围绕这个来进行，界面设计采用Gradio库进行开发，十分便捷，参考了多个github的开源项目，包括<a href="https://github.com/binary-husky/gpt_academic?tab=readme-ov-file">gpt_academic</a>,<a href="https://github.com/GaiZhenbiao/ChuanhuChatGPT/tree/main?tab=readme-ov-file">ChuanhuChatGPT</a>等。</p>
+<p>目前已经完成了该项目的初步功能，包括聊天、文件上传、提示词修改、复杂任务拆解等，后续每周会上线新功能，目前计划的包括翻译工具加入，数据获取工具加入，代码自动执行加入，本地知识库加入等。
+目前已经初步完成网站建设，</p>
 
                 
               </div>
@@ -327,7 +306,7 @@ lukcy
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/%E5%89%8D%E7%AB%AF%E7%95%8C%E9%9D%A2%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" class="category-chain-item">前端界面生成工具</a>
+  <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/GPT%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" class="category-chain-item">GPT应用开发</a>
   
   
 
@@ -346,7 +325,7 @@ lukcy
       
         <a href="/tags/AI/">#AI</a>
       
-        <a href="/tags/Code/">#Code</a>
+        <a href="/tags/GPT%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91/">#GPT模型开发</a>
       
     </div>
   
@@ -358,8 +337,8 @@ lukcy
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>screenshot-to-code</div>
-      <div>http://example.com/2023/11/28/screenshot-to-code/</div>
+      <div>大模型开发Part7</div>
+      <div>http://example.com/2024/04/02/大模型开发Part7/</div>
     </div>
     <div class="license-meta">
       
@@ -371,7 +350,7 @@ lukcy
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月28日</div>
+          <div>2024年4月2日</div>
         </div>
       
       
@@ -403,9 +382,9 @@ lukcy
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/02/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91Part7/" title="大模型开发Part7">
+                      <a href="/2025/07/18/Rokid-Glass%E6%B5%8B%E8%AF%84-xhs/" title="Rokid Glass测评_xhs">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">大模型开发Part7</span>
+                        <span class="hidden-mobile">Rokid Glass测评_xhs</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -413,8 +392,8 @@ lukcy
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/25/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91Part6/" title="大模型开发Part6">
-                        <span class="hidden-mobile">大模型开发Part6</span>
+                      <a href="/2023/11/28/screenshot-to-code/" title="screenshot-to-code">
+                        <span class="hidden-mobile">screenshot-to-code</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
